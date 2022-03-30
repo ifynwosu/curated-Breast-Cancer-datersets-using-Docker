@@ -13,8 +13,8 @@ docker build -t doppletest .
 
 # While you are testing, use this command:
 dockerCommand="docker run -i -t --rm \
-    -v $(pwd)/dopplegangR_test:/dopplegangR_test \
+    -v $(pwd):/doppelgangR \
     doppletest"
 	
-$dockerCommand Rscript /dopplegangR/dopplegang.R
+$dockerCommand Rscript doppelgang.R
 #$dockerCommand bash

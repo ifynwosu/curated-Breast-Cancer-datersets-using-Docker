@@ -1,21 +1,21 @@
 
-library("doppelgangR")
-library("Biobase")
-library("tidyverse")
+library(doppelgangR)
+library(Biobase)
+library(tidyverse)
 library(rlist)
 library(tools)
 
 #declare variables
-datadir <- "/dopplegangR"
-out_file_path = paste0("/dopplegangR_test/result.tsv")
+datadir <- "input_data"
+out_file_path = paste0("output_data/result.tsv")
 dopple_test = list()
 name_list = c()
 
 # turn each dataset into an Expressionset
 makeExprs <- function(dataset) {
   GSEdata <- read_tsv(dataset)
-  genes_names = GSEdata$Gene
-  GSEdata = select(GSEdata, -1)
+  genes_names = pull(GSEdata, Gene)
+  GSEdata = select(GSEdata, -Gene)
   data_matrix <- as.matrix(GSEdata)
   rownames(data_matrix) <- genes_names
   data_expr <- ExpressionSet(assayData = data_matrix)
@@ -32,6 +32,5 @@ names(dopple_test) <- name_list
 result <- doppelgangR(dopple_test, phenoFinder.args=NULL)
 result1 <- summary(result)
 write_tsv(result1, out_file_path)
-
 
 # test from same platforms

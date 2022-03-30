@@ -48,7 +48,7 @@ GSE11121		Affymetrix Human Genome U133A Array
 GSE1561	HR status?  no numeric summary no character summary	Affymetrix Human Genome U133A Array				
 GSE2603		Affymetrix Human Genome U133A Array				
 GSE2990		Affymetrix Human Genome U133A Array				
-GSE5364	multiple  tumors. filter for breast  no numeric summary no character summary	Affymetrix Human Genome U133A Array				
+#GSE5364	multiple  tumors. filter for breast  no numeric summary no character summary	Affymetrix Human Genome U133A Array				
 GSE7390		Affymetrix Human Genome U133A Array				
 GSE31519		Affymetrix Human Genome U133A Array				
 GSE12093		Affymetrix Human Genome U133A Array				
@@ -57,7 +57,7 @@ GSE2034		Affymetrix Human Genome U133A Array
 GSE25055		Affymetrix Human Genome U133A Array				
 GSE25065	Superseries 25066	Affymetrix Human Genome U133A Array				
 GSE5327	lung metastatis?	Affymetrix Human Genome U133A Array				
-GSE25066		Affymetrix Human Genome U133A Array				
+#GSE25066		Affymetrix Human Genome U133A Array				
 GSE4611	no numeric summary no character summary	Affymetrix Human Genome U133A Array				
 GSE46184	no numeric summary no character summary	Affymetrix Human Genome U133A Array				
 GSE16873	discuss age range  no numeric summary	Affymetrix Human Genome U133A Array				
@@ -73,7 +73,7 @@ GSE3494		Affymetrix Human Genome U133A Array	Affymetrix Human Genome U133A Array
 GSE6532	NO replicate, no reference sample.  Disciss how to proceod	Affymetrix Human Genome U133 Plus 2.0 Array	Affymetrix Human Genome U133A Array, Affymetrix Human Genome U133B Array, Affymetrix Human Genome U133 Plus 2.0 Array			
 GSE65095	Do not process	Affymetrix Human Genome U219 Array				
 GSE6434		Affymetrix Human Genome U95 Version 2 Array				
-GSE3143		Affymetrix Human Genome U95 Version 2 Array				
+#GSE3143		Affymetrix Human Genome U95 Version 2 Array				
 GSE167213		Affymetrix Human Genome U133 Plus 2.0 Array				
 GSE19594	Do not process	Affymetrix Human Mapping 10K SNP Array				
 GSE6861	Do not process	Affymetrix Human X3P Array				

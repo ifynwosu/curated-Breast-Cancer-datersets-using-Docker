@@ -41,7 +41,6 @@ dockerCommand="docker run -i -t --rm \
 # To stop a running container, use docker container stop <container_id>
 
 $dockerCommand Rscript /Expression_Scripts/Normalize.R
-#$dockerCommand Rscript /Expression_Scripts/dopplegang.R
 #$dockerCommand bash
 
 #######################################################

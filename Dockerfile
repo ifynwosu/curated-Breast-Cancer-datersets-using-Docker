@@ -15,6 +15,3 @@ ADD Expression_Scripts/*.R /Expression_Scripts/
 
 #add gseID list
 ADD gene_exp.tsv / 
-
-#RUN mkdir /dopplegangR_test
-#ADD dopplegangR_test/* /dopplegangR_test/
