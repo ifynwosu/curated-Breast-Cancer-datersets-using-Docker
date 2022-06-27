@@ -6,7 +6,7 @@
 !LICENSE
 
 # Folder to not ignore
-!/curated_data/
+!curated_data/
 
 #git add
 #git commit -m "message"
