@@ -13,10 +13,10 @@ source("scripts/createDir.R")
 #getting required functions
 source("functions/getFromGEO.R")
 source("functions/removeUnusefulCols.R")
-source("functions/removeColsWithOnlyOneValue.R")
-source("functions/removeColsWithAllUniqueValue.R")
 source("functions/summariseVariables.R")
 source("functions/writeOutput.R")
 
 #parse Files
 source("scripts/parseFiles.R")
+source("scripts/multiple_chips.R")
+source("scripts/E_TABM_158_meta.R")

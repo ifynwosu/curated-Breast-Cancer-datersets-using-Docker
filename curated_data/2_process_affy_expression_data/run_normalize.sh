@@ -6,22 +6,19 @@ set -o errexit
 # Build the Docker image
 #######################################################
 
-# use this for the first ever run on a system to give apropraite permisions
-#   docker build -t srp33/bc_data_paper_ifeanyi \
-#       --build-arg USER_ID=$(id -u) \
-#       --build-arg GROUP_ID=$(id -g) .
-
-# use this on subsequent runs
-docker build -t srp33/bc_data_paper_ifeanyi .
+docker build -t inwosu/bc_data_curation_02 .  
 
 #######################################################
 # Run detailed functional tests on small file
 #######################################################
 
-# While you are testing, use this command:
 dockerCommand="docker run -i -t --rm \
+    -v $(pwd):/2_process_affy_expression_data \
     -v $HOME/Data:/Data \
-    srp33/bc_data_paper_ifeanyi"
+    inwosu/bc_data_curation_02"
 
-$dockerCommand Rscript normalize.R
-$dockerCommand Rscript normalize_irregular_files.R 
+$dockerCommand Rscript normalize_E_TABM_158.R
+$dockerCommand Rscript normalize_multiple_chips.R
+$dockerCommand Rscript normalize_single_chips.R
+ 
+# $dockerCommand bash

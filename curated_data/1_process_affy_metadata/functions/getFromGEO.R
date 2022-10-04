@@ -8,6 +8,7 @@ getFromGEO <- function(geoID) {
     rownames_to_column(var = "geneID")
 
   meta <- pData(df) %>%
+    clean_names() %>%
     dplyr::rename(Sample_ID = geo_accession) %>%
     dplyr::select(Sample_ID, everything()) %>%
     mutate(Dataset_ID = geoID, .before = Sample_ID)

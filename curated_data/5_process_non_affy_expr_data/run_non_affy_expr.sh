@@ -6,17 +6,18 @@ set -o errexit
 # Build the Docker image
 #######################################################
 
-docker build -t inwosu/bc_data_curation_01 .
+docker build -t inwosu/bc_data_curation_05 .
 
 #######################################################
 # Run detailed functional tests on small file
 #######################################################
 
+# While you are testing, use this command:
 dockerCommand="docker run -i -t --rm \
-    -v $(pwd):/1_process_metadata \
+    -v $(pwd):/5_process_non_affy_expr_data \
     -v $HOME/Data:/Data \
-    inwosu/bc_data_curation_01"
+    inwosu/bc_data_curation_05"
 
-$dockerCommand Rscript scripts/runAll.R 
+$dockerCommand Rscript scripts/source_all_non_affy_expr.R
 
 # $dockerCommand bash

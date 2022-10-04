@@ -1,0 +1,22 @@
+
+#download the patient data from this URL
+download.file("https://media.githubusercontent.com/media/cBioPortal/datahub/master/public/brca_metabric/data_clinical_patient.txt",
+              destfile = paste0(tmp_dir, "metabric_meta.txt"))
+
+metabric <- read_tsv(paste0(tmp_dir, "metabric_meta.txt"), comment = "#") %>%
+  dplyr::rename(Sample_ID = PATIENT_ID) %>%
+  mutate(Dataset_ID = "METABRIC", .before = Sample_ID)
+
+#summarise metadata variables
+varSummary <- summariseVariables(metabric)
+
+if (nrow(varSummary$numSummary) >= 1) {
+  write_tsv(varSummary$numSummary, file.path("/Data/metadata_summaries/METABRIC_num.tsv"))
+}
+
+if (nrow(varSummary$charSummary) >= 1) {
+  write_tsv(varSummary$charSummary, file.path("/Data/metadata_summaries/METABRIC_char.tsv"))
+}
+
+print("Writing metabric to file!")
+write_tsv(metabric, paste0(data_dir, "METABRIC.tsv"))

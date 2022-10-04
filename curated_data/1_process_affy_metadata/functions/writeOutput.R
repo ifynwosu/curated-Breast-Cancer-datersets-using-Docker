@@ -13,7 +13,7 @@ writeOutput <- function(gseID) {
   if (!is.null(varSummary$numSummary)) {
     if (nrow(varSummary$numSummary) >= 1) {
       write_tsv(varSummary$numSummary, file.path(
-        tsv_dir,
+        metadata_summaries,
         paste0(gseID, "_num.tsv")
       ))
     }
@@ -22,16 +22,9 @@ writeOutput <- function(gseID) {
   if (!is.null(varSummary$charSummary)) {
     if (nrow(varSummary$charSummary) >= 1) {
       write_tsv(varSummary$charSummary, file.path(
-        tsv_dir,
+        metadata_summaries,
         paste0(gseID, "_char.tsv")
       ))
     }
-  }
-
-  if (ncol(saveCols) >= 1) {
-    write_tsv(saveCols, file.path(
-      other_dir,
-      paste0(gseID, "_other.tsv")
-   ))
   }
 }

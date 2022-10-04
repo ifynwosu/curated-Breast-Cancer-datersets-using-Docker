@@ -8,7 +8,7 @@ if (!dir.exists(brainArray_dir))
 # http://brainarray.mbni.med.umich.edu/Brainarray/Database/CustomCDF/25.0.0/entrezg.asp
 # http://brainarray.mbni.med.umich.edu/Brainarray/Database/CustomCDF/CDF_download.asp
 
-#Download and install brainArray packages for each platform
+#Download brainArray packages for each platform
 install_brain_array <- function(id) {
   download.file(paste0("http://mbni.org/customcdf/25.0.0/entrezg.download/", id, "_25.0.0.tar.gz"),
                 paste0("brainArray/", id, "_25.0.0.tar.gz"))
@@ -16,6 +16,7 @@ install_brain_array <- function(id) {
   unlink(paste0("brainArray/", id, "_25.0.0.tar.gz"))
 }
 
+#install brainArray packages
 install_brain_array("hugene10sthsentrezgprobe")   # Affymetrix Human Gene 1.0 ST Array [transcript (gene) version]
 install_brain_array("huex10sthsentrezgprobe")     # Affymetrix Human Exon 1.0 ST Array [transcript (gene) version]
 install_brain_array("u133aaofav2hsentrezgprobe")  # Affymetrix GeneChip HT-HG_U133A Early Access Array
