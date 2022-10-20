@@ -1,10 +1,6 @@
 
-library(tidyverse)
-library(tools)
-library(doppelgangR)
-
 #identify directory where input variable (normalized data) is stored
-datadir <- "/Data/normalized_data"
+datadir <- "/Data/expression_data"
 
 # There are lots of problems with GSE2879. All combinations were hanging.
 # We couldn't figure out how to fix it, we decided to skip the dataset.

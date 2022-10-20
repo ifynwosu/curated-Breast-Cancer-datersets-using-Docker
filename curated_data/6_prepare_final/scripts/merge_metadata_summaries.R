@@ -1,5 +1,4 @@
 
-library(tidyverse)
 
 #  The code below summerizes all of the metadata variables in one file
 datadir <- "/Data/analysis_ready_metadata"
@@ -11,7 +10,7 @@ big_column_names <- NULL
 for (file in file_paths) {
     df <- read_tsv(file)
     column_names <- as_tibble(colnames(df)) %>%
-    mutate(df[1, 1], .before = value)
+        mutate(df[1, 1], .before = value)
 
     if (is.null(big_column_names)) {
         big_column_names <- column_names
@@ -29,7 +28,7 @@ print(paste0("Saved to ", out_file_path))
 #  The code below summerizes all of the metadata summaries in one file
 datadir <- "/Data/metadata_summaries/"
 file_paths <- list.files(datadir, full.names = T)
-out_file_path <- "/Data/merged_meta_summary.tsv"
+out_file_path <- "/Data/merged_metadata_summary.tsv"
 
 big_df <- NULL
 

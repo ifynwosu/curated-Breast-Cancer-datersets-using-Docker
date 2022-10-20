@@ -4,8 +4,8 @@ download.file("https://media.githubusercontent.com/media/cBioPortal/datahub/mast
               destfile = paste0(tmp_dir, "metabric_expr.txt"))
 
 metaBric <- read_tsv(paste0(tmp_dir, "metabric_expr.txt"), comment = "#") %>%
-  rename("Gene" = "Hugo_Symbol") %>%
+  rename("HGNC_Symbol" = "Hugo_Symbol") %>%
   dplyr::select(-Entrez_Gene_Id)
 
-print("Writing metabric to file!")
-write_tsv(metaBric, paste0(data_dir, "METABRIC_expr.tsv.gz"))
+print("Writing METABRIC to file!")
+write_tsv(metaBric, paste0(data_dir, "METABRIC.tsv.gz"))

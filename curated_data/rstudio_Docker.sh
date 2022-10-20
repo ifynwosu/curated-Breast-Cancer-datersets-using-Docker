@@ -7,7 +7,7 @@ docker run --rm -i -t \
     -e USERID=1005 \
     -e PASSWORD=Master \
     -v $HOME:/inwosu \
-    bioconductor/bioconductor_docker:RELEASE_3_15
+    rocker/tidyverse #bioconductor/bioconductor_docker:RELEASE_3_15 # 
 
 # Helpful tips
 

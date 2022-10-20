@@ -4,7 +4,7 @@ library(rlist)
 library(tools)
 
 #declare variables
-datadir <- "/Data/normalized_data"
+datadir <- "/Data/expression_data"
 
 makeExprs <- function(dataset) {
   GSEdata <- read_tsv(dataset)

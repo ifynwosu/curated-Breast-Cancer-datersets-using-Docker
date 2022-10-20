@@ -18,5 +18,5 @@ if (nrow(varSummary$charSummary) >= 1) {
   write_tsv(varSummary$charSummary, file.path("/Data/metadata_summaries/METABRIC_char.tsv"))
 }
 
-print("Writing metabric to file!")
+print("Writing METABRIC to file!")
 write_tsv(metabric, paste0(data_dir, "METABRIC.tsv"))

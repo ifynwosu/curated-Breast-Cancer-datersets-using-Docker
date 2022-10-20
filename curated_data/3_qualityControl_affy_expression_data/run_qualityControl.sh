@@ -17,9 +17,6 @@ dockerCommand="docker run -i -t --rm \
     -v $HOME/Data:/Data \
     inwosu/bc_data_curation_03"
 
-# $dockerCommand Rscript doppelgang.R
-$dockerCommand Rscript merge_doppel_results.R
-# $dockerCommand Rscript IQRray.R
-# $dockerCommand Rscript draw_plots.R
+$dockerCommand Rscript scripts/source_all_QC.R
 
 # $dockerCommand bash    

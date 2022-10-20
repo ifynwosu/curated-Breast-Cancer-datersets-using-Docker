@@ -6,18 +6,10 @@ Sys.setenv("VROOM_CONNECTION_SIZE" = 131072 * 1000) #helps with the download for
 
 #create download directory for temporary files
 tmp_dir <- "tmp/"
-
-unlink(tmp_dir, recursive = TRUE, force = TRUE)
-
-if (!dir.exists(tmp_dir)) {
-  dir.create(tmp_dir)
-}
+dir.create(tmp_dir)
 
 # create data directory for saving data
-data_dir <- "/Data/non_affy_expr_data/"
-if (!dir.exists(data_dir)) {
-  dir.create(data_dir, recursive = TRUE)
-}
+data_dir <- "/Data/expression_data/"
 
 source("scripts/GSE81538_expr.R")
 source("scripts/GSE96058_expr.R")

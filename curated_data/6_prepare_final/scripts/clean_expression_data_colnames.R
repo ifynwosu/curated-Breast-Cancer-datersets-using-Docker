@@ -1,21 +1,28 @@
-library(tidyverse)
 #clean up expression data names
 
-datadir <- "/Data/normalized_data"
-file_paths <- list.files(datadir, full.names = T)
+file_paths <- list.files(normalized_data, full.names = T)
 
-cleaned_data_dir <- "/Data/expr_data_clean_colnames/"
-if (!dir.exists(cleaned_data_dir)) {
-  dir.create(cleaned_data_dir)
-}
+special_cases <- c("GSE62944_TCGA_Tumor", "GSE62944_TCGA_Normal", "GSE81538_MSCANBI_Cohort405_HiSeq", "GSE96058_MSCANBI_Cohort3273_HiSeq",
+                   "GSE96058_MSCANBI_Cohort3273_NextSeq", "ICGC_BRCA_FR", "ICGC_BRCA_KR", "METABRIC")
+
 
 # remove extra characters in column names
 for (file in file_paths) {
+  cat("\n")
+  print(paste0("Reading in ", file, "!"))
+  cat("\n")
+
   gseID <- basename(file)
   gseID <- gsub(".tsv.gz", "", gseID)
-  expr_data <- read_tsv(file) %>%
-                  mutate(Dataset_ID = gseID, .before = Gene) %>%
-                  filter(!str_detect(Gene, "^AFFX"))
+
+  if (gseID %in% special_cases) {
+    expr_data <- read_tsv(file) %>%
+      mutate(Dataset_ID = gseID, .before = everything())
+  } else {
+    expr_data <- read_tsv(file) %>%
+      mutate(Dataset_ID = gseID, .before = everything()) %>%
+      filter(!str_detect(Gene, "^AFFX"))
+  }
   names(expr_data) <- gsub("_.+", "", names(expr_data))
-  write_tsv(expr_data, paste0(cleaned_data_dir, gseID, ".tsv.gz"))
+  write_tsv(expr_data, paste0(clean_colnames_expr_data, gseID, ".tsv.gz"))
 }

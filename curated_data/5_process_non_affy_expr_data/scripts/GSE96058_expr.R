@@ -1,46 +1,44 @@
 # This is not a microarray study, so no series matrix file with expression values for getGEO to download.
 # Thus we have to download the expression data directly
 
-
 # get expression data
 GSE96058 <- getGEOSuppFiles(GEO = "GSE96058", makeDirectory = F, baseDir = tmp_dir, filter_regex = "GSE96058_gene_expression_3273_samples_and_136_replicates_transformed.csv.gz")
 tmp <- rownames(GSE96058)
 GSE96058_expr_table <- read_csv(tmp) %>%
-  rename("Gene" = "...1")
-
+  rename("HGNC_Symbol" = "...1") %>%
+  mutate(across(where(is.double), as.character))
 
 # this block of code takes the sample names from the metadada,
 # binds them to the expresion matrix which doesnt have any sample names
 
 gseID <- getGEO("GSE96058")
 df_HiSeq <- gseID[[1]]
-metadata_HiSeq <- pData(df_HiSeq)
-gsm_id_HiSeq <- metadata_HiSeq[, c(1, 2)]
-
 df_NextSeq <- gseID[[2]]
-metadata_NextSeq <- pData(df_NextSeq)
-gsm_id_NextSeq <- metadata_NextSeq[, c(1, 2)]
 
-big_gsm_id <- bind_rows(gsm_id_HiSeq, gsm_id_NextSeq)
-
-big_gsm_id <- as_tibble(t(big_gsm_id), rownames = NA) %>%
+add_sample_names <- function(data_file) {
+  metadata <- pData(data_file)
+  gsm_id <- metadata[, c(1, 2)] %>%
+  t() %>%
+  as_tibble %>%
   rownames_to_column(var = "rowname")
 
-big_gsm_id[1, 1] <- "Gene"
-column_name <- big_gsm_id[1, ]
-colnames(big_gsm_id) <- column_name
-big_gsm_id <- big_gsm_id[-1, ]
+  gsm_id[1, 1] <- "HGNC_Symbol"
+  gsm_id[2, 1] <- "HGNC_Symbol"
 
-GSE96058_expr_table <- GSE96058_expr_table %>%
-  mutate(across(where(is.double), as.character))
+  gsm_id <- gsm_id %>%
+  row_to_names(1, remove_row = TRUE)
 
-expr_df <- bind_rows(big_gsm_id, GSE96058_expr_table) %>%
-  dplyr::select(-contains("repl"))
+  select_data <- dplyr::select(GSE96058_expr_table, all_of(colnames(gsm_id)))
+  named_data <- bind_rows(gsm_id, select_data) %>%
+    dplyr::select(-contains("repl")) %>%
+    row_to_names(1, remove_row = TRUE)
 
-expr_df[1, 1] <- "Gene"
-column_name <- expr_df[1, ]
-colnames(expr_df) <- column_name
-expr_df <- expr_df[-1, ]
+  return(named_data)
+}
+
+HiSeq <- add_sample_names(df_HiSeq)
+NextSeq <- add_sample_names(df_NextSeq)
 
 print("Writing GSE96058 to file!")
-write_tsv(expr_df, paste0(data_dir, "GSE96058_MSCANBI_Cohort3273.tsv.gz"))
+write_tsv(HiSeq, paste0(data_dir, "GSE96058_MSCANBI_Cohort3273_HiSeq.tsv.gz"))
+write_tsv(NextSeq, paste0(data_dir, "GSE96058_MSCANBI_Cohort3273_NextSeq.tsv.gz"))

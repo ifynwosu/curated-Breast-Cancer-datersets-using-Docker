@@ -11,7 +11,7 @@ options(download.file.method.GEOquery = "wget")
 registerDoParallel(cores = 16)
 
 # Create the normalized data folder if it doesn't exist
-normalized_data <- "/Data/normalized_data/"
+normalized_data <- "/Data/expression_data/"
 
 if (!dir.exists(normalized_data)) {
     dir.create(normalized_data)
@@ -127,4 +127,4 @@ SCAN_normalise("GSE4922", "pd.hg.u133b", "hgu133bhsentrezgprobe", "GSE4922_U133B
 
 SCAN_normalise("GSE6532", "pd.hg.u133a", "hgu133ahsentrezgprobe", "GSE6532_U133A", GSE6532_U133A_celfile)
 SCAN_normalise("GSE6532", "pd.hg.u133b", "hgu133bhsentrezgprobe", "GSE6532_U133B", GSE6532_U133B_celfile)
-SCAN_normalise("GSE6532", "pd.hg.u133.plus.2", "hgu133plus2hsentrezgprobe", "GSE6532_U133_2", GSE6532_U133_2_celfile)
+SCAN_normalise("GSE6532", "pd.hg.u133.plus.2", "hgu133plus2hsentrezgprobe", "GSE6532_U133Plus2", GSE6532_U133_2_celfile)

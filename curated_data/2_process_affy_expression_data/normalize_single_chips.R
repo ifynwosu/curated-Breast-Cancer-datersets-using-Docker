@@ -13,7 +13,7 @@ options(timeout = max(300, getOption("timeout")))
 options(download.file.method.GEOquery = "wget")
 
 # Create the normalized data folder if it doesn't exist
-normalized_data <- "/Data/normalized_data/"
+normalized_data <- "/Data/expression_data/"
 
 if (!dir.exists(normalized_data)) {
     dir.create(normalized_data)

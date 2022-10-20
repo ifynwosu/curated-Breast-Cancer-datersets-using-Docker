@@ -2,28 +2,26 @@
 removeCols <- function(metadata) {
 
   metadata <- metadata %>%
-    dplyr::select(-(starts_with(c("contact", "sample name", "relation", "supplementary", "data_processing", "library", "description_"))))
+    dplyr::select(- (starts_with(c("contact", "sample name", "relation", "supplementary", "data_processing", "library", "description_"))))
 
   #other unuseful columns
-  # remove_cols <- c("biomaterial_provider_ch1", "channel_count", "data_processing", "data_row_count", "extract_protocol_ch1", "extract_protocol_ch1_1",
-  #                   "filename:ch1", "growth_protocol_ch1", "hyb_protocol", "ID:ch1", "id:ch1", "instrument_model", "instrument model:ch1", "label_ch1",
-  #                   "label_protocol_ch1", "last_update_date", "molecule_ch1", "name:ch1", "organism_ch1", "patient-id:ch1", "patientid:ch1", "patient id:ch1",
-  #                   "platform_id", "processor_id", "samplename:ch1", "scan_protocol", "source_name_ch1", "status", "submission_date", "taxid_ch1", "tissue-type:ch1",
-  #                  "tissue type:ch1", "treatment_protocol_ch1", "type")
-
   remove_cols <- c("biomaterial_provider_ch1", "channel_count", "data_processing", "data_row_count", "extract_protocol_ch1", "extract_protocol_ch1_1",
-                   "growth_protocol_ch1", "hyb_protocol", "instrument_model", "instrument_model_ch1", "label_ch1", "label_protocol_ch1", "last_update_date",
-                   "molecule_ch1", "organism_ch1", "platform_id", "processor_id",  "scan_protocol", "source_name_ch1", "status",
+                    "growth_protocol_ch1", "hyb_protocol", "instrument_model", "instrument_model_ch1", "label_ch1", "label_protocol_ch1", "last_update_date",
+                   "molecule_ch1", "organism_ch1", "processor_id", "scan_protocol", "source_name_ch1", "status",
                    "submission_date", "taxid_ch1", "treatment_protocol_ch1", "type")
 
   for (element in remove_cols) {
     if (element %in% names(metadata)) {
+      if (element == "platform_id") {
+        metadata <- metadata %>%
+        rename(Platform_ID = platform_id)
+      }
       metadata <- metadata %>%
-        dplyr::select(-all_of(element))
+      dplyr::select(-all_of(element))
     }
   }
 
-  column_names_to_remove = c()
+  column_names_to_remove <- c()
 
   for (i in seq_along(metadata)) {
     columnName <- colnames(metadata)[i]

@@ -6,7 +6,7 @@ library(rlist)
 library(tools)
 
 #declare variables
-datadir <- "/Data/normalized_data"
+datadir <- "/Data/expression_data"
 out_file_path <- paste0("/Data/doppel_result_test.tsv")
 dopple_file <- list()
 filename_list <- c()

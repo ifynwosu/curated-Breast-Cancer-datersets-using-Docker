@@ -9,7 +9,7 @@ set -o errexit
 docker build -t inwosu/bc_data_curation_01 .
 
 #######################################################
-# Run detailed functional tests on small file
+# Run docker command
 #######################################################
 
 dockerCommand="docker run -i -t --rm \
@@ -17,6 +17,6 @@ dockerCommand="docker run -i -t --rm \
     -v $HOME/Data:/Data \
     inwosu/bc_data_curation_01"
 
-$dockerCommand Rscript scripts/runAll.R 
+$dockerCommand Rscript scripts/parse_metadata.R 
 
 # $dockerCommand bash

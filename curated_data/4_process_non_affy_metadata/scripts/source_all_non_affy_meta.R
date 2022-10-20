@@ -14,13 +14,10 @@ if (!dir.exists(tmp_dir)) {
 
 # create data directory for saving data
 data_dir <- "/Data/analysis_ready_metadata/"
-if (!dir.exists(data_dir)) {
-  dir.create(data_dir, recursive = TRUE)
-}
 
 source("functions/summariseVariables.R")
-
 source("functions/removeCols.R")
+
 source("scripts/GSE81538_meta.R")
 source("scripts/GSE96058_meta.R")
 source("scripts/GSE62944_meta.R")

@@ -7,7 +7,7 @@ library(janitor)
 registerDoParallel(cores = 16)
 
 # Create the normalized data folder if it doesn't exist
-normalized_data <- "/Data/normalized_data/"
+normalized_data <- "/Data/expression_data/"
 if (!dir.exists(normalized_data)) {
     dir.create(normalized_data)
 }
@@ -85,7 +85,7 @@ joint_cols[1, 1] <- "Gene"
 new_df <- bind_rows(joint_cols, ETABM_expr) %>%
     row_to_names(1)
   
-out_file_path <- "/Data/normalized_data/E_TABM_158.tsv.gz"
+out_file_path <- "/Data/expression_data/E_TABM_158.tsv.gz"
 
 write_tsv(new_df, out_file_path)
 print(paste0("Saved E_TABM_158 to ", out_file_path))

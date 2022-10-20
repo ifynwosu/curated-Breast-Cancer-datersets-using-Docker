@@ -19,12 +19,14 @@ removeUnusefulCols <- function(metadata) {
   "processor_id", "samplename_ch1", "sample_name_ch1", "scan_protocol", "source_name_ch1", "status", "submission_date", "taxid_ch1",
   "treatment_protocol_ch1", "type")
 
-  #"name", "processor_name", "processor_version",  "series_id"
-
   for (element in remove_cols) {
     if (element %in% names(metadata)) {
+      if (element == "platform_id") {
+        metadata <- metadata %>%
+        rename(Platform_ID = platform_id)
+      }
       metadata <- metadata %>%
-        dplyr::select(-all_of(element))
+      dplyr::select(-all_of(element))
     }
   }
 

@@ -8,9 +8,9 @@ exp_array_BRCA_KR <- read_tsv(paste0(tmp_dir, "exp_seq_BRCA_KR.tsv.gz"))
 
 # clean up data
 BRCA_KR <- exp_array_BRCA_KR %>%
-  rename("gene_symbol" = "gene_id") %>%
-  dplyr::filter(gene_symbol != "SLC35E2") %>%
-  dplyr::select(icgc_donor_id, gene_symbol, normalized_read_count) %>%
+  rename("HGNC_Symbol" = "gene_id") %>%
+  dplyr::filter(HGNC_Symbol != "SLC35E2") %>%
+  dplyr::select(HGNC_Symbol, icgc_donor_id, normalized_read_count) %>%
   mutate(normalized_read_count = log2(normalized_read_count + 1)) %>%
   pivot_wider(names_from = icgc_donor_id, values_from = normalized_read_count)
 

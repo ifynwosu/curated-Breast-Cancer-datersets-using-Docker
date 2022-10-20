@@ -8,9 +8,6 @@ keep_varible <- c("Affymetrix Human Exon 1.0 ST Array [transcript (gene) version
                   "Affymetrix Human Genome U133A Array", "Affymetrix Human Genome U133A 2.0 Array", "Affymetrix Human Genome U133 Plus 2.0 Array")
 
 
-# Define the file path to the raw metadata directory
-# raw_metadata_dir <- "/Data/raw_metadata/"
-
 gseID_list <- NULL
 
 #create a new list with gseID's we want to keep

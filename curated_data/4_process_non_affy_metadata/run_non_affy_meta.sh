@@ -9,7 +9,7 @@ set -o errexit
 docker build -t inwosu/bc_data_curation_04 .
 
 #######################################################
-# Run detailed functional tests on small file
+# Run docker command
 #######################################################
 
 dockerCommand="docker run -i -t --rm \

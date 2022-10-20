@@ -3,10 +3,6 @@ library(tidyverse)
 
 dual_chips <- c("GSE1456", "GSE3494", "GSE4922")
 
-# raw_metadata_dir <- "/Data/raw_metadata/"
-# metadata_dir <- "/Data/analysis_ready_metadata"
-# metadata_summaries <- "/Data/metadata_summaries"
-
 getDualGEO <- function(geoID) {
   gseData <- getGEO(geoID)
 
@@ -86,7 +82,7 @@ U133A <- gseData[[2]]
 U133B <- gseData[[3]]
 U133Plus2 <- gseData[[1]]
 
-exprs_pheno_data <- function(chipID) {
+exprs_meta_data <- function(chipID) {
   exprsData <- exprs(chipID) %>%
     as_tibble(rownames = NA) %>%
     rownames_to_column(var = "geneID")
@@ -100,9 +96,9 @@ exprs_pheno_data <- function(chipID) {
   return(list(expression_data = exprsData, metadata = meta))
 }
 
-df_U133A <- exprs_pheno_data(U133A)
-df_U133B <- exprs_pheno_data(U133B)
-df_U133Plus2 <- exprs_pheno_data(U133Plus2)
+df_U133A <- exprs_meta_data(U133A)
+df_U133B <- exprs_meta_data(U133B)
+df_U133Plus2 <- exprs_meta_data(U133Plus2)
 
 write_tsv(df_U133A$metadata, file.path(raw_metadata_dir, paste0("GSE6532_U133A.tsv")))
 write_tsv(df_U133B$metadata, file.path(raw_metadata_dir, paste0("GSE6532_U133B.tsv")))

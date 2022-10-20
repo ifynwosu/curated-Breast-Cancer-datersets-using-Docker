@@ -7,8 +7,8 @@ exp_array_BRCA_FR <- read_tsv(paste0(tmp_dir, "exp_array_BRCA_FR.tsv.gz"))
 
 # clean up data
 BRCA_FR <- exp_array_BRCA_FR %>%
-  rename("gene_symbol" = "gene_id") %>%
-  dplyr::select(icgc_donor_id, gene_symbol, normalized_expression_value) %>%
+  rename("HGNC_Symbol" = "gene_id") %>%
+  dplyr::select(HGNC_Symbol, icgc_donor_id, normalized_expression_value) %>%
   pivot_wider(names_from = icgc_donor_id, values_from = normalized_expression_value)
 
 print("Writing BRCA_FR to file!")

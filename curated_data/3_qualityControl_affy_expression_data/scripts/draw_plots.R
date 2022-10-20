@@ -1,5 +1,3 @@
-library(tidyverse)
-library(ggplot2)
 
 sort_samples = function(x) {
   return(sapply(x, sort_sample))

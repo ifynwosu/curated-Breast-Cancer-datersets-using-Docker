@@ -4,7 +4,7 @@ library(tools)
 library(R.utils)
 library(GEOquery)
 
-datadir <- "/Data/normalized_data/"
+datadir <- "/Data/expression_data/"
 file_paths <- list.files(datadir, full.names = T)
 dual_arrays <- c("GSE1456_U133A", "GSE1456_U133B", "GSE3494_U133A", "GSE3494_U133B",
                   "GSE4922_U133A", "GSE4922_U133B", "GSE6532_U133A", "GSE6532_U133B", "GSE6532_U133_2")

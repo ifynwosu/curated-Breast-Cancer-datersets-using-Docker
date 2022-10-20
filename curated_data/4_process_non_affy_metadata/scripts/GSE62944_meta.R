@@ -3,7 +3,16 @@
 cancerTypeSamples <- getGEOSuppFiles("GSE62944", makeDirectory = F, baseDir = tmp_dir, filter_regex = "GSE62944_06_01_15_TCGA_24_CancerType_Samples.txt.gz")
 CancerType <- rownames(cancerTypeSamples) %>%
   read_tsv(col_names = F)
-colnames(CancerType) <- c("Sampleid", "cancer_type")
+colnames(CancerType) <- c("Sample_ID", "cancer_type")
+CancerType <- CancerType %>%
+  dplyr::filter(cancer_type == "BRCA")
+
+normalTypeSamples <- getGEOSuppFiles("GSE62944", makeDirectory = F, baseDir = tmp_dir, filter_regex = "GSE62944_06_01_15_TCGA_24_Normal_CancerType_Samples.txt.gz")
+normalType <- rownames(normalTypeSamples) %>%
+  read_tsv(col_names = F)
+colnames(normalType) <- c("Sample_ID", "cancer_type")
+normalType <- normalType %>%
+  dplyr::filter(cancer_type == "BRCA")
 
 #create a vector to replace the unknown variables with NA
 na_strings <- c("[Unknown]", "[Not Available]", "[Not Evaluated]", "[Not Applicable]")
@@ -14,29 +23,30 @@ Clinical_Variables <- rownames(clinicalVariables) %>%
 
 #rearrange Clinical_Variables
 Transposed_df <- as_tibble(t(Clinical_Variables), stringsAsFactors = F)
-Transposed_df[1, 1] <- "Sampleid"
+Transposed_df[1, 1] <- "Sample_ID"
 Transposed_df <- row_to_names(Transposed_df, 1, remove_row = TRUE, remove_rows_above = TRUE)
 
 #merge the data frames by Sampleid
-Merged_df <- Transposed_df %>%
-  inner_join(CancerType, by = "Sampleid")
+Merged_tumor_df <- Transposed_df %>%
+  inner_join(CancerType, by = "Sample_ID")
+
+Merged_normal_df <- Transposed_df %>%
+  inner_join(normalType, by = "Sample_ID")
 
 #select breast cancer samples only, remove samples without an ID, and remove samples with only one value
-BRCA <- Merged_df %>%
-  dplyr::filter(Merged_df$cancer_type == "BRCA") %>%
+BRCA <- Merged_tumor_df %>%
   dplyr::filter(bcr_patient_uuid != "NA") %>%
   dplyr::select(-c("form_completion_date", "prospective_collection", "retrospective_collection", "tissue_source_site")) %>%
   remove_constant()
   # not sure if we should keep or discard these variables ("bcr_patient_barcode" "patient_id", "birth_days_to", "last_contact_days_to")
  
 #calculate percentage of columns with missing data for easy visualisation
-NA_cols <- as_tibble(colMeans(is.na(BRCA)), rownames = "variable") %>%
-  pivot_wider(names_from = variable, values_from = value)
-new_BRCA <- rbind(NA_cols, BRCA)
+# NA_cols <- as_tibble(colMeans(is.na(BRCA)), rownames = "variable") %>%
+#   pivot_wider(names_from = variable, values_from = value)
+# new_BRCA <- rbind(NA_cols, BRCA)
 
 # keep columns with less than 50% NA
 BRCA_filtered <- BRCA[, colMeans(is.na(BRCA)) < 0.5] %>%
-  dplyr::rename(Sample_ID = Sampleid) %>%
   mutate(Dataset_ID = "GSE62944", .before = Sample_ID)
 
 #summarise metadata variables
