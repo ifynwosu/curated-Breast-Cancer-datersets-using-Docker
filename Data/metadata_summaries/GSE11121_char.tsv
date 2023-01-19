@@ -1,0 +1,6 @@
+Dataset_ID	Variable	Unique_Summary	Num_Unique
+GSE11121	clinic	Mainz	1
+GSE11121	Platform_ID	GPL96	1
+GSE11121	e_dmfs	0, 1	2
+GSE11121	grade	1, 2, 3	3
+GSE11121	node	0	1

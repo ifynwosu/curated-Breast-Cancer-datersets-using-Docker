@@ -1,0 +1,13 @@
+Dataset_ID	Variable	Unique_Summary	Num_Unique
+GSE21653	histology	IDC, ILC, MIX, MUC, other, TUB, NA	7
+GSE21653	molecular_subtype	Basal, ERBB2, LuminalA, LuminalB, Normal	5
+GSE21653	Platform_ID	GPL570	1
+GSE21653	pt	pT1, pT2, pT3, NA	4
+GSE21653	dfs_evt	0, 1, NA	3
+GSE21653	er_ihc	0, 1, NA	3
+GSE21653	erbb2	0, 1, NA	3
+GSE21653	ki67_ihc	0, 1, NA	3
+GSE21653	p53_ihc	0, 1, NA	3
+GSE21653	pn	0, 1, NA	3
+GSE21653	pr_ihc	0, 1, NA	3
+GSE21653	sbr_grade	1, 2, 3, NA	4

@@ -1,0 +1,19 @@
+Dataset_ID	Variable	Unique_Summary	Num_Unique
+GSE25065	chemosensitivity_prediction	Rx Insensitive, Rx Sensitive	2
+GSE25065	clinical_ajcc_stage	I, IIA, IIB, IIIA, IIIB, IIIC	6
+GSE25065	clinical_nodal_status	N0, N1, N2, N3	4
+GSE25065	clinical_t_stage	T0, T1, T2, T3, T4	5
+GSE25065	er_status_ihc	N, P, NA	3
+GSE25065	erbb2_status	N, P	2
+GSE25065	esr1_status	N, P	2
+GSE25065	her2_status	N, P, NA	3
+GSE25065	pam50_class	Basal, Her2, LumA, LumB, Normal	5
+GSE25065	pathologic_response_pcr_rd	pCR, RD, NA	3
+GSE25065	pathologic_response_rcb_class	RCB-0/I, RCB-II, RCB-III, NA	4
+GSE25065	Platform_ID	GPL96	1
+GSE25065	pr_status_ihc	N, P, NA	3
+GSE25065	rcb_0_i_prediction	RCB-0/I, RCB-II/III	2
+GSE25065	source	LBJ/IN/GEI, MDACC, USO	3
+GSE25065	type_taxane	Taxol, Taxotere	2
+GSE25065	drfs_1_event_0_censored	0, 1	2
+GSE25065	grade	1, 2, 3, NA	4

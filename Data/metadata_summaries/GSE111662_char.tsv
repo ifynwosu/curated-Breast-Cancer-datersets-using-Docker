@@ -1,0 +1,4 @@
+Dataset_ID	Variable	Unique_Summary	Num_Unique
+GSE111662	Platform_ID	GPL570	1
+GSE111662	tissue	epithelium, stroma, whole	3
+GSE111662	batch	1, 2, 3, 4	4

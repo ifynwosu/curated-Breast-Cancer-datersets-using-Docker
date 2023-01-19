@@ -1,0 +1,13 @@
+Dataset_ID	Variable	Unique_Summary	Num_Unique
+GSE50948	arm	HER2- CT, HER2+ CT, HER2+ CT H	3
+GSE50948	er	ER-, ER+	2
+GSE50948	her2	HER2-, HER2+	2
+GSE50948	inflammatory_brca	no, yes	2
+GSE50948	menopausal_status	post, pre	2
+GSE50948	pcr	pCR, RD	2
+GSE50948	Platform_ID	GPL570	1
+GSE50948	pr	PR-, PR+	2
+GSE50948	race	Black, Caucasian, Oriental	3
+GSE50948	treatment	neoadjuvant doxorubicin/paclitaxel (AT) followed by cyclophosphamide/methotrexate/fluorouracil (CMF), neoadjuvant doxorubicin/paclitaxel (AT) followed by cyclophosphamide/methotrexate/fluorouracil (CMF) + Trastuzumab for 1 year	2
+GSE50948	ecog	0, 1	2
+GSE50948	invasive_tumor_grade	2, 3, NA	3

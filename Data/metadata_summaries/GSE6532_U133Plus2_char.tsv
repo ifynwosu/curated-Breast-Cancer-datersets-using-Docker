@@ -1,0 +1,9 @@
+Dataset_ID	Variable	Unique_Summary	Num_Unique
+GSE6532_U133Plus2	Platform_ID	GPL570	1
+GSE6532_U133Plus2	series	GUYT	1
+GSE6532_U133Plus2	e_dmfs	0, 1	2
+GSE6532_U133Plus2	e_rfs	0, 1	2
+GSE6532_U133Plus2	er	1	1
+GSE6532_U133Plus2	grade	1, 2, 3, NA	4
+GSE6532_U133Plus2	node	0, 1	2
+GSE6532_U133Plus2	pgr	0, 1, NA	3

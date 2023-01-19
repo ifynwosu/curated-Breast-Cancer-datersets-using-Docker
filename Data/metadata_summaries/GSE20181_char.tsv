@@ -1,0 +1,7 @@
+Dataset_ID	Variable	Unique_Summary	Num_Unique
+GSE20181	administration	oral, NA	2
+GSE20181	agent	Letrozol, NA	2
+GSE20181	dose	2.5mg/day, NA	2
+GSE20181	gender	female, NA	2
+GSE20181	Platform_ID	GPL96	1
+GSE20181	time	90 days, NA	2

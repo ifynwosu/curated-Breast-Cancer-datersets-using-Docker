@@ -1,0 +1,10 @@
+Dataset_ID	Variable	Unique_Summary	Num_Unique
+GSE58644	Platform_ID	GPL6244	1
+GSE58644	chemo	0, 1, NA	3
+GSE58644	er	0, 1, NA	3
+GSE58644	event	0, 1, NA	3
+GSE58644	grade	1, 2, 3, NA	4
+GSE58644	her2	0, 1, NA	3
+GSE58644	herceptin	0, 1, NA	3
+GSE58644	lymph	0, 1, NA	3
+GSE58644	tamoxifen	0, 1, NA	3

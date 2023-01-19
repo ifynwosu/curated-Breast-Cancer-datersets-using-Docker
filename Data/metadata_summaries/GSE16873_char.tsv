@@ -1,0 +1,5 @@
+Dataset_ID	Variable	Unique_Summary	Num_Unique
+GSE16873	age_range	48-92 years old	1
+GSE16873	cell_type	epithelial	1
+GSE16873	disease_state	atypical ductal hyperplasia, ductal carcinoma in situ, histologically normal, simple ductal hyperplasia	4
+GSE16873	Platform_ID	GPL96	1

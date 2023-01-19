@@ -1,0 +1,6 @@
+Dataset_ID	Variable	Unique_Summary	Num_Unique
+GSE118432	copathology_report	ADH, ADH severe, ADH, ALH, ADH, FEA, ADH/DCIS LG, ADH/FEA, ALH, ALH/FEA, FEA, LCIS, LCIS/ALH, NA	12
+GSE118432	gender	Female	1
+GSE118432	histology	ADH, AH, Atypia, B9, Benign, normal, Normal	7
+GSE118432	Platform_ID	GPL6244	1
+GSE118432	r_l_breast	L, R, NA	3

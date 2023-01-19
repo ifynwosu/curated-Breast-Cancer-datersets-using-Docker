@@ -1,0 +1,5 @@
+Dataset_ID	Variable	Unique_Summary	Num_Unique
+GSE4611	cell_type	invasive mammary carcinoma	1
+GSE4611	gender	female	1
+GSE4611	Platform_ID	GPL96	1
+GSE4611	tissue	pretreatment excision biopsy	1

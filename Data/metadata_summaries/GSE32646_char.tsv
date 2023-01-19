@@ -1,0 +1,10 @@
+Dataset_ID	Variable	Unique_Summary	Num_Unique
+GSE32646	clinical_stage	IIA, IIB, IIIA, IIIB	4
+GSE32646	er_status_ihc	negative, positive	2
+GSE32646	her2_status_fish	negative, positive	2
+GSE32646	lymph_node_status	negative, positive	2
+GSE32646	pathologic_response_pcr_ncr	nCR, pCR	2
+GSE32646	Platform_ID	GPL570	1
+GSE32646	pr_status_ihc	negative, positive	2
+GSE32646	clinical_t_stage	1, 2, 3, 4	4
+GSE32646	histological_grade	1, 2, 3	3

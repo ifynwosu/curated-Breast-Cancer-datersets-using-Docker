@@ -1,0 +1,19 @@
+Dataset_ID	Variable	Unique_Summary	Num_Unique
+ICGC_FR	cancer_history_first_degree_relative	no, yes	2
+ICGC_FR	disease_status_last_followup	NA, relapse	2
+ICGC_FR	donor_has_relative_with_cancer_history	NA, yes	2
+ICGC_FR	donor_relapse_type	NA, distant recurrence/metastasis, local recurrence	3
+ICGC_FR	donor_sex	female	1
+ICGC_FR	donor_tumour_stage_at_diagnosis	T2N1M0, T1N0M0, T2N2M0, T2N3M0, T2N0M0, T1N1M0, T3N1M0, T4N2M0, T1N3M0, T1N2M0, NA, T0N0M0	12
+ICGC_FR	donor_vital_status	alive, deceased	2
+ICGC_FR	first_therapy_type	radiation therapy, chemotherapy, other therapy	3
+ICGC_FR	level_of_cellularity	61-80%, >81%, 41-60%	3
+ICGC_FR	other_therapy	NA, HORMONETHERAPY	2
+ICGC_FR	Platform_ID	GPL570	1
+ICGC_FR	prior_malignancy	unknown, no, yes	3
+ICGC_FR	second_therapy_type	chemotherapy, radiation therapy, other therapy, no treatment	4
+ICGC_FR	tobacco_smoking_history_indicator	NA, Current smoker (includes daily smokers non-daily/occasional smokers), Lifelong non-smoker (<100 cigarettes smoked in lifetime), Current reformed smoker for > 15 years, Current reformed smoker for <= 15 years, Current reformed smoker, duration not specified	6
+ICGC_FR	tumour_grade	Grade_3, Grade_2, NA	3
+ICGC_FR	tumour_grading_system	SBR_GRADE	1
+ICGC_FR	tumour_stage	T2N1M0, T1N0M0, T2N2M0, T2N3M0, T2N0M0, T1N1M0, T3N1M0, T4N2M0, T1N3M0, T1N2M0, NA, T0N0M0	12
+ICGC_FR	tumour_stage_system	TNM	1

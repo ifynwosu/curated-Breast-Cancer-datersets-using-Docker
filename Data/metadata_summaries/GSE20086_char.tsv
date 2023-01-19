@@ -1,0 +1,4 @@
+Dataset_ID	Variable	Unique_Summary	Num_Unique
+GSE20086	cell_type	carcinoma-associated fibroblast, normal fibroblast	2
+GSE20086	Platform_ID	GPL570	1
+GSE20086	tissue	breast carcinoma, normal breast	2

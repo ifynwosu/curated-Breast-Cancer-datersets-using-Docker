@@ -1,0 +1,10 @@
+Dataset_ID	Variable	Unique_Summary	Num_Unique
+GSE9195	Platform_ID	GPL570	1
+GSE9195	series	GUYT2	1
+GSE9195	treatment	tamoxifen	1
+GSE9195	e_dmfs	0, 1	2
+GSE9195	e_rfs	0, 1	2
+GSE9195	er	1	1
+GSE9195	grade	1, 2, 3, NA	4
+GSE9195	node	0, 1	2
+GSE9195	pgr	0, 1	2

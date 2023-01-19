@@ -1,0 +1,4 @@
+Dataset_ID	Variable	Unique_Summary	Num_Unique
+GSE59772	Platform_ID	GPL6244	1
+GSE59772	replicate	Cancer Cells 1, Cancer Cells 2, Cancer Cells 3, Stroma 1, Stroma 2, Stroma 3, Total 1, Total 2, Total 3	9
+GSE59772	tissue	Cancer cells, Stroma, Total tumor	3

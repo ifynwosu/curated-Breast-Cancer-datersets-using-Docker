@@ -1,0 +1,8 @@
+Dataset_ID	Variable	Unique_Summary	Num_Unique
+GSE31192	cell_type_1	Epithelial, Stroma	2
+GSE31192	cell_type_2	DCIS Epithelial, DCIS Stroma, Epithelial, Normal Epithelial, Normal Stroma (07), Normal Stroma (08), Normal Stroma (19), Normal Stroma (21), Stroma	9
+GSE31192	cell_type_3	normal epithelial cells, normal stroma cells, tumor associated stroma cells, tumor epithelial cells	4
+GSE31192	er_status	ER neg, ER pos	2
+GSE31192	patient	Non-PABC patient, PABC patient	2
+GSE31192	patient_id	BC06_52, BC06_57, BC06-21, BC06-25, BC07_19, BC07_20, BC07_29, BC07_37, BC07_47, BC08-103, BC08-24, BC08-49, BC08-55, BC08-72	14
+GSE31192	Platform_ID	GPL570	1

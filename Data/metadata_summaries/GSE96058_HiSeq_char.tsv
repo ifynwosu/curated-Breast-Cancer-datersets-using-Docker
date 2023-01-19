@@ -1,0 +1,13 @@
+Dataset_ID	Variable	Unique_Summary	Num_Unique
+GSE96058_HiSeq	lymph_node_group	NodeNegative, 1to3, 4toX, SubMicroMet, NA	5
+GSE96058_HiSeq	lymph_node_status	NodeNegative, NodePositive, NA	3
+GSE96058_HiSeq	nhg	G3, G2, G1, NA	4
+GSE96058_HiSeq	pam50_subtype	Basal, LumA, LumB, Normal, Her2	5
+GSE96058_HiSeq	Platform_ID	GPL11154	1
+GSE96058_HiSeq	chemo_treated	0, 1	3
+GSE96058_HiSeq	endocrine_treated	0, 1	3
+GSE96058_HiSeq	er_status	0, 1	3
+GSE96058_HiSeq	her2_status	0, 1	3
+GSE96058_HiSeq	ki67_status	0, 1	3
+GSE96058_HiSeq	overall_survival_event	0, 1	2
+GSE96058_HiSeq	pgr_status	0, 1	3

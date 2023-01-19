@@ -1,0 +1,11 @@
+Dataset_ID	Variable	Unique_Summary	Num_Unique
+GSE31519	biopsy_type	 core needle,  surgical	2
+GSE31519	breast_cancer_subtype	triple-negative breast cancer	1
+GSE31519	chemotherapy_treatment_yes_no	NO, YES	2
+GSE31519	cohort	FRA, FRA-2, FRA-3, HH	4
+GSE31519	event	 no,  yes, NA	3
+GSE31519	grade	 G1 or G2,  G3, NA	3
+GSE31519	lymph_node_status	negative, positive, NA	3
+GSE31519	neoadjuvant_chemotherapy_yes_no	NO, YES	2
+GSE31519	Platform_ID	GPL96	1
+GSE31519	tumor_size	 greater than 1 cm,  up to 1 cm, NA	3

@@ -1,0 +1,32 @@
+Dataset_ID	Variable	Unique_Summary	Num_Unique
+GSE81538	pam50_subtype	Basal, Her2, LumB, Normal, LumA	5
+GSE81538	Platform_ID	GPL11154	1
+GSE81538	er_consensus	0, 1, 2, 3	4
+GSE81538	er_ihc_restain_reading_1	0, 1, 2, 3	4
+GSE81538	er_ihc_restain_reading_2	0, 1, 2, 3	4
+GSE81538	er_ihc_restain_reading_3	0, 1, 2, 3	4
+GSE81538	er_ihc_routinestain_clinical_reading	0, 1, 2, 3	4
+GSE81538	er_ihc_routinestain_reading_2	0, 1, 2, 3	4
+GSE81538	er_ihc_routinestain_reading_3	0, 1, 2, 3	4
+GSE81538	her2_clinical_status	0, 1	3
+GSE81538	her2_consensus	0, 1	2
+GSE81538	her2_ihc_clinreading	0, 1, 2, 3	4
+GSE81538	her2_ihc_reading_2	0, 1, 2, 3	4
+GSE81538	her2_ihc_reading_3	0, 1, 2, 3	4
+GSE81538	nhg_consensus	1, 2, 3	3
+GSE81538	nhg_reading_1_mitotic	1, 2, 3	3
+GSE81538	nhg_reading_1_pleomorph	1, 2, 3	3
+GSE81538	nhg_reading_1_tubular	1, 2, 3	3
+GSE81538	nhg_reading_2_mitotic	1, 2, 3	3
+GSE81538	nhg_reading_2_pleomorph	1, 2, 3	3
+GSE81538	nhg_reading_2_tubular	1, 2, 3	3
+GSE81538	nhg_reading_3_mitotic	1, 2, 3	3
+GSE81538	nhg_reading_3_pleomorph	2, 3	2
+GSE81538	nhg_reading_3_tubular	1, 2, 3	3
+GSE81538	pgr_consensus	0, 1, 2, 3	4
+GSE81538	pgr_ihc_routinestain_clinical_reading	0, 1, 2, 3	4
+GSE81538	pgr_restain_reading_1	0, 1, 2, 3	4
+GSE81538	pgr_restain_reading_2	0, 1, 2, 3	4
+GSE81538	pgr_restain_reading_3	0, 1, 2, 3	4
+GSE81538	pgr_routinestain_reading_2	0, 1, 2, 3	4
+GSE81538	pgr_routinestain_reading_3	0, 1, 2, 3	4

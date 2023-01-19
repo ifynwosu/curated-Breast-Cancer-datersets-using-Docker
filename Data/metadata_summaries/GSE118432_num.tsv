@@ -1,0 +1,2 @@
+Dataset_ID	Variable	Min	Mean	Max	Num_Unique	Unique_Summary
+GSE118432	patient_age	40	52.476190476190474	70	16	40, 43, 44, 46, 47, 49, 50, 52, 53, 54, 55, 58, 60, 62, 63, 70

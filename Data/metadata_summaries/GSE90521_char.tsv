@@ -1,0 +1,12 @@
+Dataset_ID	Variable	Unique_Summary	Num_Unique
+GSE90521	er	Negative	1
+GSE90521	gender	Female	1
+GSE90521	group	old, young	2
+GSE90521	her2	Negative	1
+GSE90521	pgr	Negative	1
+GSE90521	Platform_ID	GPL570	1
+GSE90521	pn_stage	0, 1a, 2a, 3a	4
+GSE90521	pt_stage	1c, 2	2
+GSE90521	tissue	stromal micromilieu	1
+GSE90521	type	ductal	1
+GSE90521	grade	2, 3	2
