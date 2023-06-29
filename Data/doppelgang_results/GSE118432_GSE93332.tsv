@@ -1,0 +1,2 @@
+sample1	sample2	expr.similarity	expr.doppel	pheno.similarity	pheno.doppel	smokinggun.similarity	smokinggun.doppel
+GSE118432:GSM3330081	GSE93332:GSM2451623	0.9381247489229215	TRUE	NA	FALSE	NA	FALSE

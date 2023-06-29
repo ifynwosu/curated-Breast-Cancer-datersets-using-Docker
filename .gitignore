@@ -1,5 +1,5 @@
 # Ignore everything in this directory 
-Data/
+Data/*
 
 # Files to not ignore
 !Data/gseIDs.tsv

@@ -1,0 +1,2 @@
+sample1	sample2	expr.similarity	expr.doppel	pheno.similarity	pheno.doppel	smokinggun.similarity	smokinggun.doppel
+E_TABM_158:s0033	GSE41194:GSM1010264	0.9564683002451742	TRUE	NA	FALSE	NA	FALSE

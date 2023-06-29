@@ -1,0 +1,3 @@
+sample1	sample2	expr.similarity	expr.doppel	pheno.similarity	pheno.doppel	smokinggun.similarity	smokinggun.doppel
+GSE21422:GSM535613	GSE21422:GSM535616	0.9868999636692661	TRUE	NA	FALSE	NA	FALSE
+E_TABM_158:s0077	GSE21422:GSM535605	0.9600784967724696	TRUE	NA	FALSE	NA	FALSE
