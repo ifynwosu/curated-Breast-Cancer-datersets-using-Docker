@@ -38,7 +38,7 @@ for (gseID in gseID_list) {
 
       # source file to address special cases
       source("scripts/special_cases.R")
-
+      
       # summarise variables
       varSummary <- summariseVariables(metadata)
 

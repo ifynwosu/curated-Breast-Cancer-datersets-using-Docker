@@ -2,11 +2,6 @@
 #identify directory where input variable (normalized data) is stored
 datadir <- "/Data/expression_data"
 
-# There are lots of problems with GSE2879. All combinations were hanging.
-# We couldn't figure out how to fix it, we decided to skip the dataset.
-# It is a small dataset with only 12 samples in duplicate, for a total of 24, so not a huge loss
-skip_dataset <- paste0(datadir, "/GSE28796.tsv.gz")
-
 # turn each dataset into an Expressionset
 makeExprs <- function(file_path) {
   GSEdata <- read_tsv(file_path) %>%
@@ -20,28 +15,16 @@ makeExprs <- function(file_path) {
 
 #run dopplegangR using pairwise comparisons of datasets
 file_paths <- list.files(datadir, full.names = T)
-# for (i in 1:(length(file_paths) - 1)) {
-  file_path1 <- file_paths[80]
-  # for (j in (i + 1):length(file_paths)) {
-    file_path2 <- file_paths[81]
-    # if (file_path1 == file_path2) {
-    #   next
-    # }
-
-    if ((file_path1 == skip_dataset) | (file_path2 == skip_dataset)) {
-      next
-    }
+for (i in 1:(length(file_paths) - 1)) {
+  file_path1 <- file_paths[i]
+  for (j in (i + 1):length(file_paths)) {
+    file_path2 <- file_paths[j]
 
     file_names <- basename(c(file_path1, file_path2)) %>%
       file_path_sans_ext() %>%
       file_path_sans_ext()
 
-    out_file_dir <- "/Data/doppelgang_results/"
-    if (!dir.exists(out_file_dir)) {
-      dir.create(out_file_dir)
-    }
-
-    out_file_path <- paste0(out_file_dir,  paste0(file_names, collapse = "_"), ".tsv")
+     out_file_path <- paste0(doppel_dir,  paste0(file_names, collapse = "_"), ".tsv")
 
     if (file.exists(out_file_path)) {
       print(paste0(out_file_path, " already exists"))

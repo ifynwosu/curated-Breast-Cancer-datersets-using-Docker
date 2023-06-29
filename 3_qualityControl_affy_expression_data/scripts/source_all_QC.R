@@ -8,12 +8,27 @@ library(AnnotationDbi)
 library(Biobase)
 library(oligo)
 library(GEOquery)
+
+library("pd.hugene.1.0.st.v1")
+library("pd.huex.1.0.st.v2")
+library("u133aaofav2cdf")
+library("hgu95av2cdf")
+library("hgu133acdf")
+library("hgu133a2cdf")
+library("hgu133plus2cdf")
+library("hgu133bcdf")
+
 options(timeout = max(300, getOption("timeout")))
 options(download.file.method.GEOquery = "wget")
 
-out_file_path <- "/Data/IQRray_results/"
-if (!dir.exists(out_file_path)) {
-  dir.create(out_file_path)
+doppel_dir <- "/Data/doppelgang_results/"
+    if (!dir.exists(doppel_dir)) {
+      dir.create(doppel_dir)
+    }
+
+IQRray_file_path <- "/Data/IQRray_results/"
+if (!dir.exists(IQRray_file_path)) {
+  dir.create(IQRray_file_path)
 }
 
 #source required functions

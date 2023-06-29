@@ -13,6 +13,7 @@ docker build -t inwosu/bc_data_curation_03 .
 #######################################################
 
 dockerCommand="docker run -i -t --rm \
+    -u $(id -u):$(id -g) \
     -v $(pwd):/3_qualityControl_affy_expression_data \
     -v $(pwd)/../Data:/Data \
     inwosu/bc_data_curation_03"

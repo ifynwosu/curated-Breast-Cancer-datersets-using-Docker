@@ -1,7 +1,0 @@
-Dataset_ID	Variable	Unique_Summary	Num_Unique
-GSE1456_U133A	Platform_ID	GPL96	1
-GSE1456_U133A	subtype	Basal, ERBB2, Luminal A, Luminal B, No Subtype, Normal Like	6
-GSE1456_U133A	death	0, 1	2
-GSE1456_U133A	death_bc	0, 1	2
-GSE1456_U133A	elston	1, 2, 3, NA	4
-GSE1456_U133A	relapse	0, 1	2

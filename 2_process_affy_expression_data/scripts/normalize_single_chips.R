@@ -3,12 +3,13 @@ SCAN_normalise <- function(gseID, annotation_package, probe_summary, GSM_to_excl
 
     out_file_path <- paste0(normalized_data, gseID, ".tsv.gz")
     tmp_dir <- paste0("/tmp/", gseID)
-    unlink(tmp_dir, recursive = TRUE, force = TRUE)
-    dir.create(tmp_dir)
-
+   
     if (file.exists(out_file_path)) {
         print(paste0(gseID, " has already been processed!"))
     } else {
+        unlink(tmp_dir, recursive = TRUE, force = TRUE)
+        dir.create(tmp_dir)
+
         print(paste0("Downloading ", gseID, " for processing!"))
         GSE <- getGEOSuppFiles(gseID, makeDirectory = F, baseDir = tmp_dir, filter_regex = "*.tar")
         tmp <- rownames(GSE)

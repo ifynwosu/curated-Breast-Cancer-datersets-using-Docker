@@ -37,6 +37,9 @@ clean_metadata_Dual <- function(meta) {
     dplyr::select(-c("title", "description")) %>%
     dplyr::select(-starts_with("characteristics"))
 
+    # remove colums with more than 50% NA
+    # metadata <- metadata[, colMeans(is.na(metadata)) < 0.5]
+
   return(metadata)
 }
 
@@ -96,8 +99,6 @@ U133A <- gseData[[2]]
 U133B <- gseData[[3]]
 U133Plus2 <- gseData[[1]]
 
-
-
 parse_metadata <- function(chipID, platform) {
   meta <- pData(chipID) %>%
     clean_names() %>%
@@ -125,6 +126,10 @@ clean_metadata <- function(chip) {
     rename_with(~str_replace_all(., "_ch1", "")) %>%
     dplyr::select(-c("title", "description")) %>%
     mutate(across(where(is.character), ~replace(., . %in% c("KJ67", "KJ68", "KJ69", "KJX46", "KJX38", "KJ117"), NA)))
+
+    # remove colums with more than 50% NA
+    # metadata <- metadata[, colMeans(is.na(metadata)) < 0.5]
+
   return(metadata)
 }
 

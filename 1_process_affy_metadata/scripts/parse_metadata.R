@@ -1,5 +1,6 @@
-#With update to readr, GEOquery stops working.
-#This is a temporary workaround
+#An update to readr caused GEOquery to fail.
+#This temporary workaround fixed it so leaving it here incase it breaks again in the future
+
 #Sys.setenv("VROOM_CONNECTION_SIZE" = 131072 * 1000)
 #readr::local_edition(1)
 

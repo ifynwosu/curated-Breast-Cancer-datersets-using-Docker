@@ -1,3 +1,4 @@
+
 #BRCA_KR
 
 download.file("https://dcc.icgc.org/api/v1/download?fn=/current/Projects/BRCA-KR/donor.BRCA-KR.tsv.gz",
@@ -5,7 +6,6 @@ download.file("https://dcc.icgc.org/api/v1/download?fn=/current/Projects/BRCA-KR
 donor_BRCA_KR <- read_tsv(paste0(tmp_dir, "donor.BRCA-KR.tsv.gz")) %>%
   dplyr::select(-c(project_code, study_donor_involved_in, submitted_donor_id, donor_tumour_stage_at_diagnosis_supplemental, prior_malignancy,
                    cancer_type_prior_malignancy, cancer_history_first_degree_relative))
-
 
 
 download.file("https://dcc.icgc.org/api/v1/download?fn=/current/Projects/BRCA-KR/specimen.BRCA-KR.tsv.gz",
@@ -38,3 +38,16 @@ if (nrow(varSummary$charSummary) >= 1) {
 
 print("Writing ICGC_KR to file!")
 write_tsv(combined_df, paste0(data_dir, "ICGC_KR.tsv"))
+
+
+d_BRCA_KR <- read_tsv(paste0(tmp_dir, "donor.BRCA-KR.tsv.gz")) 
+s_BRCA_KR <- read_tsv(paste0(tmp_dir, "specimen.BRCA-KR.tsv.gz"))
+
+combined_data <- d_BRCA_KR %>%
+  inner_join(s_BRCA_KR, by = "icgc_donor_id") %>%
+  dplyr::rename(Sample_ID = icgc_donor_id)
+
+write_tsv(combined_data, file.path(raw_metadata_dir, "ICGC_KR.tsv"))
+
+
+

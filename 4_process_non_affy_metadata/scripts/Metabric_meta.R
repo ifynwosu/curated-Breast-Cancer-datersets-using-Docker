@@ -1,6 +1,6 @@
 
 #download the patient data from this URL
-download.file("https://media.githubusercontent.com/media/cBioPortal/datahub/master/public/brca_metabric/data_clinical_patient.txt",
+download.file("https://osf.io/download/ubcej/",
               destfile = paste0(tmp_dir, "metabric_meta.txt"))
 
 metabric <- read_tsv(paste0(tmp_dir, "metabric_meta.txt")) 

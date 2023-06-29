@@ -9,7 +9,7 @@ GSE96058_expr_table <- read_csv(tmp) %>%
   mutate(across(where(is.double), as.character))
 
 # this block of code takes the sample names from the metadada,
-# binds them to the expresion matrix which doesnt have any sample names
+# binds them to the expression matrix which does not have any sample names
 
 gseID <- getGEO("GSE96058")
 df_HiSeq <- gseID[[1]]
@@ -21,7 +21,6 @@ add_sample_names <- function(data_file) {
   t() %>%
   as_tibble %>%
   rownames_to_column(var = "rowname")
-
   gsm_id[1, 1] <- "HGNC_Symbol"
   gsm_id[2, 1] <- "HGNC_Symbol"
 

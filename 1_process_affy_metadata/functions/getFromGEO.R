@@ -1,5 +1,5 @@
 getFromGEO <- function(geoID) {
-
+  #geoID <- "GSE22093"
   gseData <- getGEO(geoID)
   df <- gseData[[1]]
 

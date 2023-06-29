@@ -2,6 +2,9 @@ library(biomaRt)
 library(tidyverse)
 library(tools)
 
+# set biomart cache location. Without this, code fails becase of docker permissions issues.
+Sys.setenv(BIOMART_CACHE = "/Data/cache")
+
 normalized_data <- "/Data/expression_data"
 
 IQRray_result <- "/Data/IQRray_results"
@@ -21,7 +24,7 @@ if (!dir.exists(final_meta)) {
   dir.create(final_meta)
 }
 
-meta_expr_matched_data <- "/Data/matched_data/"
+meta_expr_matched_data <- "/Data/matched_expr_data/"
 if (!dir.exists(meta_expr_matched_data)) {
   dir.create(meta_expr_matched_data)
 }
@@ -41,3 +44,4 @@ unlink(clean_colnames_expr_data, recursive = TRUE, force = TRUE)
 unlink(IQRray_filtered, recursive = TRUE, force = TRUE)
 unlink(meta_expr_matched_data, recursive = TRUE, force = TRUE)
 unlink(meta_dir, recursive = TRUE, force = TRUE)
+unlink("/Data/cache", recursive = TRUE, force = TRUE) 

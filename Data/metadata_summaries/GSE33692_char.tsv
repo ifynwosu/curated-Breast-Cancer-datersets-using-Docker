@@ -1,5 +1,0 @@
-Dataset_ID	Variable	Unique_Summary	Num_Unique
-GSE33692	phenotype	ductal carcinoma in situ, invasive breast cancer, normal	3
-GSE33692	Platform_ID	GPL5175	1
-GSE33692	subject	DCIS 01, DCIS 02, DCIS 05, DCIS 06, DCIS 08, DCIS 09, DCIS 10, DCIS 11, DCIS 12, DCIS 18, IDC 03, IDC 04, IDC 07, IDC 13, IDC 14, IDC 15, IDC 16, IDC 17, IDC 19, IDC 20, NORMAL 21, NORMAL 22, NORMAL 23	23
-GSE33692	tissue_compartment	epithelium, stroma	2

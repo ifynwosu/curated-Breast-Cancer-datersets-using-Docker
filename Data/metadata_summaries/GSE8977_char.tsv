@@ -1,4 +1,0 @@
-Dataset_ID	Variable	Unique_Summary	Num_Unique
-GSE8977	Platform_ID	GPL570	1
-GSE8977	tissue_source	normal, tumor	2
-GSE8977	tissue_type	Stroma	1

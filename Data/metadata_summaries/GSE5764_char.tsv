@@ -1,6 +1,0 @@
-Dataset_ID	Variable	Unique_Summary	Num_Unique
-GSE5764	mastectomy	from mastectomy specimen	1
-GSE5764	Platform_ID	GPL570	1
-GSE5764	postmenupausal	from postmenopausal patient	1
-GSE5764	subtype	 with invasive ductal carcinoma (IDC),  with invasive lobular carcinoma (ILC), with invasive ductal carcinoma (IDC), with invasive lobular carcinoma (ILC)	4
-GSE5764	tissue	normal tissue, tumor tissue 	2

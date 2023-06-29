@@ -1,7 +1,0 @@
-Dataset_ID	Variable	Unique_Summary	Num_Unique
-GSE2990	description	Tumor samples from Tamoxifen-only treated primary breast cancer patients, Tumor samples from untreated primary breast cancer patients.	2
-GSE2990	Platform_ID	GPL96	1
-GSE2990	distant_rfs	0, 1, NA	3
-GSE2990	er	0, 1, NA	3
-GSE2990	grade	1, 2, 3, NA	4
-GSE2990	node	0, NA	2

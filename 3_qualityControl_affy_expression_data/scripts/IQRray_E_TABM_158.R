@@ -6,7 +6,6 @@ if (!dir.exists(base_dir)) {
   dir.create(base_dir)
 }
 
-
 download.file("https://osf.io/download/mg8kj",
               destfile = paste0(base_dir, "/E_TABM_158.zip"), method = "wget")
 
@@ -35,7 +34,7 @@ joint_cols <- full_join(meta_col, IQR_score) %>%
   dplyr::select(gseID, gsmID, celfileID, value)
 
 
-write_tsv(joint_cols, paste0(out_file_path, "E_TABM_158.tsv"))
+write_tsv(joint_cols, paste0(IQRray_file_path, "E_TABM_158.tsv"))
 print("Saved to E_TABM_158.tsv")
 
 unlink(base_dir, recursive = TRUE, force = TRUE)

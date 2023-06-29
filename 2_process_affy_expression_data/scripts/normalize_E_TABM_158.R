@@ -15,6 +15,7 @@ if (!dir.exists(tmp_dir)) {
 download.file("https://www.ebi.ac.uk/arrayexpress/files/E-TABM-158/E-TABM-158.sdrf.txt",
               destfile = paste0(tmp_dir, "ETABM_158_meta.txt"))
 
+# download expression file
 download.file("https://osf.io/download/mg8kj",
               destfile = paste0(base_dir, "/E_TABM_158.zip"), method = "wget")
 
@@ -36,7 +37,7 @@ for (celFilePath in celFilePaths) {
   }
 }
 
-## The sections below change the column names to match metadata
+### The sections below change the column names to match metadata
 
 # read the normalized expression data file into a table
 ETABM_expr <- all_normalized %>%

@@ -1,3 +1,0 @@
-Dataset_ID	Variable	Min	Mean	Max	Num_Unique	Unique_Summary
-GSE19697	nodes_examined	1	14.5	29	15	1, 6, 8, 9, 10, 12, 13, 14, 15, 16, 17, 19, 20, 26, 29
-GSE19697	positive_nodes	0	1.5833333333333333	14	7	0, 1, 2, 3, 5, 10, 14

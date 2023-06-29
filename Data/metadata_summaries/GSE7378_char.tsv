@@ -1,5 +1,0 @@
-Dataset_ID	Variable	Unique_Summary	Num_Unique
-GSE7378	er_status	ER+	1
-GSE7378	nodal_status	N0	1
-GSE7378	Platform_ID	GPL4685	1
-GSE7378	recurrence_1_event_0_censored	1, NA	2

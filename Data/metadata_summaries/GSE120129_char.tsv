@@ -1,4 +1,0 @@
-Dataset_ID	Variable	Unique_Summary	Num_Unique
-GSE120129	distance_from_tumor	0mm, 10mm, 15mm, 20mm, 5mm	5
-GSE120129	patient_id	1, 1100, 1105, 1106, 1108, 1120, 11205, 1121, 1122, 1123, 1124, 1127, 1130, 1131, 1132, 1136, 1140, 1141, 12, 120T, 147, 1471, 1475, 2, 3, 300, 305, 4, 5, 6, 7, 8, B1, B2T, B5, B6, B7, B8	38
-GSE120129	Platform_ID	GPL570	1

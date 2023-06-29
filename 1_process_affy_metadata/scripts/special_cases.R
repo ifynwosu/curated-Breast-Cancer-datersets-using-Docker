@@ -1,18 +1,19 @@
 
 if (gseID == "GSE1561") {
-    metadata <- metadata %>%
-      dplyr::select(-starts_with("title")) %>%
-      dplyr::select(-starts_with("description"))
+  metadata <- metadata %>%
+    dplyr::select(-starts_with("title")) %>%
+    dplyr::select(-starts_with("description"))
 }
 
 if (gseID == "GSE2034") {
   metadata <- metadata %>%
     dplyr::select(-starts_with("title")) %>%
-     dplyr::select(-starts_with("description"))
+    dplyr::select(-starts_with("description"))
 }
 
 if (gseID == "GSE2603") {
   metadata <- metadata %>%
+    filter(str_detect(title, "^B")) %>% # the other samples are from cell lines
     dplyr::select(-c("title", "name")) %>%
     dplyr::select(-starts_with("description"))
 }
@@ -21,7 +22,6 @@ if (gseID == "GSE2990") {
   metadata <- metadata %>%
     dplyr::select(-c("title", "ggi")) %>%
     mutate(across(where(is.character), ~replace(., . %in% c("KJ67", "KJ68", "KJ69", "KJX46", "KJX38", "KJ117"), NA)))
-
 }
 
 if (gseID == "GSE3744") {
@@ -38,12 +38,14 @@ if (gseID == "GSE4611") {
 if (gseID == "GSE5327") {
   metadata <- metadata %>%
     dplyr::select(-c("description", "lms_status")) %>%
-    dplyr::rename(er_status = title)
+    dplyr::rename(er_status = title) %>% 
+    mutate(across(er_status, ~str_replace(., " human primary breast tumor ", ","))) %>%
+    separate("er_status", c("er_status", "Patient_ID"), sep = ",")
 }
 
 if (gseID == "GSE5460") {
   metadata <- metadata %>%
-  dplyr::select(-starts_with("title")) %>%
+    dplyr::select(-starts_with("title")) %>%
     dplyr::select(-starts_with("description"))
 }
 
@@ -53,17 +55,9 @@ if (gseID == "GSE5764") {
     separate("characteristics", c("tissue", "mastectomy", "postmenupausal", "subtype"), sep = cumsum(c(13, 25, 28, 40))) %>%
     mutate(mastectomy = str_trim(mastectomy)) %>%
     mutate(postmenupausal = str_trim(postmenupausal))
-
-  # metadata <- df$metadata %>%
-  #   dplyr::select(-c("title", "description")) %>%
-  #   mutate(tissue = substr(characteristics, 1, 13),
-  #       mastectomy = substr(characteristics, 14, 38),
-  #       postmenupausal = substr(characteristics, 39, 66),
-  #       subtype = substr(characteristics, 67, 106))
 }
 
 if (gseID == "GSE5847") {
-  
   metadata <- metadata %>%
     mutate(description = sub(";", ",", description)) %>%
     separate("description", c("chemotherapy", "ER_status", "Her2Neu", "TNM_stage", "description"), sep = ", ") %>%
@@ -77,8 +71,6 @@ if (gseID == "GSE5847") {
     mutate(Clinical_IBC = str_trim(Clinical_IBC)) %>%
     mutate(across(Cyclin_E, ~str_replace(., "Cyclin E: ", ""))) %>%
     dplyr::select(-c("title", "er_status", "patient_id", "tnm_stage", "description")) 
-    
-    
 }
 
 if (gseID == "GSE6434") {
@@ -117,13 +109,13 @@ if (gseID == "GSE8977") {
 
 if (gseID == "GSE9195") {
   metadata <- metadata %>%
-  dplyr::select(-starts_with("title")) %>%
+    dplyr::select(-starts_with("title")) %>%
     dplyr::select(-starts_with("description"))
 }
 
 if (gseID == "GSE9574") {
   metadata <- metadata %>%
-  dplyr::select(-starts_with("title")) %>%
+    dplyr::select(-starts_with("title")) %>%
     dplyr::select(-starts_with("description"))
 }
 
@@ -135,9 +127,21 @@ if (gseID == "GSE10780") {
 
 if (gseID == "GSE10797") {
   metadata <- metadata %>%
-  rename(tissue_source = characteristics) %>%
-  rename(replicate = title) %>%
-  dplyr::select(-"description")
+    dplyr::select(-"description") %>%
+    rename(tissue_source = characteristics) %>%
+    rename(replicate = title) %>%
+    mutate(across(replicate, ~str_replace(., "cancer_epithelial_rep", ""))) %>%
+    mutate(across(replicate, ~str_replace(., "cancer_stroma_rep", "")))
+}
+
+if (gseID == "GSE10810") {
+  metadata <- metadata %>%
+    dplyr::select(-title) %>%
+    separate("description", c("paired_status", "Patient_ID"), sep = "  ") %>%
+    mutate(across(paired_status, ~str_replace(., "Control ", ""))) %>%
+    mutate(across(paired_status, ~str_replace(., "Tumor ", ""))) %>%
+    mutate(across(paired_status, ~str_replace(., "not paired", "No"))) %>%
+    mutate(across(paired_status, ~str_replace(., "paired", "Yes")))
 }
 
 if (gseID == "GSE11121") {
@@ -152,7 +156,7 @@ if (gseID == "GSE12093") {
 
 if (gseID == "GSE12276") {
   metadata <- metadata %>%
-  dplyr::select(-starts_with("title")) %>%
+    dplyr::select(-starts_with("title")) %>%
     dplyr::select(-starts_with("description"))
 }
 
@@ -171,12 +175,12 @@ if (gseID == "GSE16391") {
 
 if (gseID == "GSE16446") {
   metadata <- metadata %>%
-  dplyr::select(-c("title", "description", "final_analysis"))
+    dplyr::select(-c("title", "description", "final_analysis"))
 }
 
 if (gseID == "GSE16873") {
   metadata <- metadata %>%
-  dplyr::select(-c("title", "label_protocol_1", "description", "tissue"))
+    dplyr::select(-c("title", "label_protocol_1", "description", "tissue"))
 }
 
 if (gseID == "GSE17705") {
@@ -216,7 +220,13 @@ if (gseID == "GSE20086") {
 
 if (gseID == "GSE20181") {
   metadata <- metadata %>%
-    dplyr::select(-starts_with(c("title", "description", "tissue", "characteristics", "subject")))
+    dplyr::select(-starts_with(c("description", "tissue", "characteristics", "subject"))) %>% 
+    dplyr::select(-(c("administration", "agent", "dose", "gender", "time"))) %>% 
+    mutate(across(title , ~str_replace(., "female;breast tumor;", "")))  %>%
+    mutate(across(title , ~str_replace(., ": ", ";"))) %>%
+    mutate(gender = "female") %>%
+    separate("title", c("Patient_ID", "temp", "Treatment_Response"), sep = ";") %>%
+    separate("temp", c("agent", "dose", "route_of_administration", "time"), sep = ",")
 }
 
 if (gseID == "GSE20194") {
@@ -231,11 +241,11 @@ if (gseID == "GSE20271") {
 }
 
 if (gseID == "GSE20437") {
-  #remove histology...change contro to red mamo.. change mamo to NA...chanege er bc to just er
   metadata <- metadata %>%
     dplyr::select(-starts_with(c("tissue", "description"))) %>%
     rename(histology = title) %>%
-    mutate(across(histology, ~str_replace(., "reduction mammoplasty", "normal")))  
+    mutate(across(histology, ~str_replace(., "reduction mammoplasty", "normal"))) %>%
+    mutate(across(histology, ~str_replace(., "\\d+$", ""))) 
 }
 
 if (gseID == "GSE20685") {
@@ -428,7 +438,7 @@ if (gseID == "GSE59772") {
 
 if (gseID == "GSE76275") {
   metadata <- metadata %>%
-    dplyr::select(-c("title", "characteristics_18", "description", "data_processing_1", "tissue", "set", "tnbc_subtype"))
+    dplyr::select(-c("title", "characteristics_18", "description", "tissue", "set", "tnbc_subtype"))
 }
 
 if (gseID == "GSE81838") {
@@ -464,4 +474,184 @@ if (gseID == "GSE120129") {
 if (gseID == "GSE167213") {
   metadata <- metadata %>%
     dplyr::select(-c("title", "description", "tissue"))
+}
+
+if (gseID == "GSE8193") {
+  metadata <- metadata %>%
+    dplyr::select(-"description") %>%
+    rename(er_status = characteristics) %>%
+    rename(pr_status = characteristics_1) %>%
+    rename(Patient_ID = title)
+}
+
+if (gseID == "GSE10281") {
+  metadata <- metadata %>%
+    dplyr::select(-c("description", "tissue"))%>%
+    mutate(title = str_replace(title, ";.+", ""))  %>%
+    mutate(title = str_replace(title, "patient", "patient "))  %>%
+    separate(treatment, c("agent", "dose", "route_of_administration", "time"), sep = ",") %>%
+    rename(Patient_ID = title)
+}
+
+if (gseID == "GSE11001") {
+  metadata <- metadata %>%
+    dplyr::select(-c("title", "description"))
+}
+
+if (gseID == "GSE12763") {
+    metadata <- metadata %>%      
+      dplyr::select(-c("title", "description")) %>%
+      rename(subtype = characteristics)
+}
+
+if (gseID == "GSE13787") {
+  metadata <- metadata %>%
+    dplyr::select(-c("description", "title"))
+}
+
+if (gseID == "GSE14017") {
+  metadata <- metadata %>%
+    dplyr::select(-c("title", "characteristics")) %>%
+    rename(distant_metastasis = description)
+}
+
+if (gseID == "GSE14018") {
+  metadata <- metadata %>%
+    dplyr::select(-c("title", "characteristics")) %>%
+    rename(distant_metastasis = description)
+}
+
+if (gseID == "GSE18728") {
+  metadata <- metadata %>%
+    dplyr::select(-c("description", "tissue_type", "upin", "include_in_bl", "include_in_paired")) %>%
+    rename(Patient_ID = title)
+}
+
+if (gseID == "GSE21422") {
+  metadata <- metadata %>%
+    dplyr::select(-c("description", "tissue", "title"))
+}
+
+if (gseID == "GSE22093") {
+  metadata <- metadata %>%
+    dplyr::select(-c("array_qc", "tissue", "postchemo_tumor_size")) %>%
+    dplyr::select(-starts_with(c("description","er_positive_vs_negative_by_esr1_mrna"))) %>% 
+    rename(Patient_ID = title) %>%
+    mutate(across(Patient_ID , ~str_replace(., "breast cancer ", ""))) %>%
+    rename(er_positive_vs_negative_by_esr1_mrna_gene_expression_probe = characteristics_4) %>%
+    mutate(across(er_positive_vs_negative_by_esr1_mrna_gene_expression_probe , ~str_replace(., "probe: ", "probe "))) %>%
+    mutate(across(er_positive_vs_negative_by_esr1_mrna_gene_expression_probe , 
+                  ~str_replace(., "er positive vs negative by esr1 mrna gene expression", ""))) %>%
+    mutate(across(er_positive_vs_negative_by_esr1_mrna_gene_expression_probe , 
+                   ~str_replace(., "\\(probe 205225_at\\): ", "")))
+}
+
+if (gseID == "GSE22544") {
+  metadata <- metadata %>%
+    dplyr::select(-c("title", "description", "tissue")) %>%
+    rename(Patient_ID = patient)
+}
+
+if (gseID == "GSE23720") {
+  metadata <- metadata %>%
+    dplyr::select(-"title")  
+}
+
+if (gseID == "GSE25407") {
+  metadata <- metadata %>%
+    dplyr::select(-c("description", "characteristics_3", "title")) %>%
+    rename(Patient_ID = patient)
+}
+
+if (gseID == "GSE27562") {
+  metadata <- metadata %>%
+    dplyr::select(-starts_with("description")) %>%
+    dplyr::select(-c("title", "data_set"))
+}
+
+if (gseID == "GSE29431") {
+  metadata <- metadata %>%
+    dplyr::select(-starts_with("characteristics_")) %>%
+    dplyr::select(- "title") %>%
+    mutate(disease_state = str_replace(disease_state, "none", "normal")) 
+}
+
+if (gseID == "GSE31448") {
+  metadata <- metadata %>%
+    dplyr::select(-starts_with("characteristics_")) %>%
+    dplyr::select(-c("tissue", "description", "p53_ihc_status", "er_ihc_status", "erbb2_ht_ihc_status", "erbb2_tab_ihc_status",
+    "erbb2p_ihc_status", "foxa1_ihc_status", "age_of_diagnosis_year", "egfr_ihc_status",
+    "grade_sbr", "igf1r_ihc_status", "ki67_ihc_status", "mfsdel_month", "mfs", "top2a_ihc_status", "type",
+    "pr_ihc_status")) %>%
+    rename(er_ihc_1 = er_ihc) %>%
+    rename(pr_ihc_1 = pr_ihc) %>%
+    rename(Patient_ID = title) %>%
+    rename(erbb2_ihc_status_1 = erbb2_ihc_status) %>%
+    rename(age_at_diagnosis_1 = age_at_diagnosis) %>%
+    mutate(tumor_status = ifelse(str_detect(Patient_ID, ": NB"), "Normal", "Tumor")) %>%
+    mutate(age_at_diagnosis = coalesce(age_at_diagnosis_1, age_at_diagnosis_2)) %>%
+    mutate(er_ihc = coalesce(er_ihc_1, er_ihc_2)) %>%
+    mutate(pr_ihc = coalesce(pr_ihc_1, pr_ihc_2, prihc)) %>%
+    mutate(erbb2_ihc_status = coalesce(erbb2, erbb2_ihc_status_1)) %>%
+    dplyr::select(-c("er_ihc_1", "er_ihc_2", "pr_ihc_1", "pr_ihc_2", "age_at_diagnosis_1", "age_at_diagnosis_2", "erbb2",
+                     "prihc","erbb2_ihc_status_1"))
+}
+
+if (gseID == "GSE41194") {
+  metadata <- metadata %>%
+    dplyr::select(-c("description", "tissue")) %>%
+    rename(Patient_ID = title)
+}
+
+if (gseID == "GSE41196") {
+  metadata <- metadata %>%
+    dplyr::select(-c("description", "tissue")) %>%
+    rename(Patient_ID = title)
+}
+
+if (gseID == "GSE41197") {
+  metadata <- metadata %>%
+    dplyr::select(-c("description", "tissue")) %>%
+    rename(Patient_ID = title)
+}
+
+if (gseID == "GSE42568") {
+  metadata <- metadata %>%
+    dplyr::select(-c("description", "tissue")) %>%
+    separate(title, c("tissue_type", "Patient_ID"), sep = ",")
+}
+
+if (gseID == "GSE43365") {
+  metadata <- metadata %>%
+    dplyr::select(-c("description", "ggi", "gg")) %>%
+    rename(Patient_ID = title)
+}
+
+if (gseID == "GSE47109") {
+  metadata <- metadata %>%
+    rename(Patient_ID = title)
+}
+
+if (gseID == "GSE161533") {
+  metadata <- metadata %>%
+    rename(Patient_ID = title)
+}
+
+if (gseID == "GSE61304") {
+  metadata <- metadata %>%
+    rename(tumor_source = title) %>%
+    rename(histology_group = diagnosis) %>%
+    mutate(across(tumor_source, ~str_replace(., ",", ""))) %>%
+    mutate(across(tumor_source, ~str_replace(., "\\d+$", ""))) 
+}
+
+if (gseID == "GSE23988") { 
+  metadata <- metadata %>%
+    dplyr::select(-"array_qc") %>%
+    rename(Patient_ID = title) 
+}
+
+if (gseID == "GSE93332") { 
+  metadata <- metadata %>%
+    dplyr::select(-c("tissue", "title"))
 }

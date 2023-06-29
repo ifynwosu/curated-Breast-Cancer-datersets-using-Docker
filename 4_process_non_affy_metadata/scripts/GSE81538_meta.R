@@ -1,5 +1,5 @@
 
-#get ExpressionSet from GEO for "this" GEO tag, create data frame of relevant information
+# get ExpressionSet from GEO for "this" GEO tag, create data frame of relevant information
 gseID <- getGEO("GSE81538")
 df <- gseID[[1]]
 

@@ -1,5 +1,0 @@
-Dataset_ID	Variable	Unique_Summary	Num_Unique
-GSE9574	disease_state	breast cancer, normal (reduction mammoplasty)	2
-GSE9574	patient_id	226, 232, 237, 248, 251, 258, 274, 278, 288, 297B, 304B, 309, 310, 314, 316, 318, 320, 328, 334, 340, 347, 350, 351, 352, 357, 359, 360, 361, 368	29
-GSE9574	Platform_ID	GPL96	1
-GSE9574	tissue_type	breast epithlieum	1

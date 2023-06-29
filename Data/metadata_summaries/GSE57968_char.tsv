@@ -1,5 +1,0 @@
-Dataset_ID	Variable	Unique_Summary	Num_Unique
-GSE57968	patient_id	A, AA, AC, AD, AF, AG, AH, AI, AJ, AK, AO, AQ, AR, AS, AW, AX, AY, AZ, E, F, H, J, K, L, O, P, Q, R, S, T, U, V, W, X, Y, Z	36
-GSE57968	Platform_ID	GPL571	1
-GSE57968	tissue_subtype	lymph node metastasis, primary tumor	2
-GSE57968	tissue_type	breast tumor tissue	1

@@ -1,8 +1,0 @@
-Dataset_ID	Variable	Unique_Summary	Num_Unique
-GSE32518	er_status_by_ihc	N, P, NA	3
-GSE32518	her2_status_ihc_and_fish	N, P, NA	3
-GSE32518	Platform_ID	GPL96	1
-GSE32518	pr_status_by_ihc	N, P, NA	3
-GSE32518	sample_type	core needle biopsy, fine needle aspiration	2
-GSE32518	treatment_status	pre-treatment	1
-GSE32518	pre_mbng	1, 2, 3, NA	4

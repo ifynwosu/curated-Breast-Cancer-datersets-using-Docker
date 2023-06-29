@@ -1,9 +1,0 @@
-Dataset_ID	Variable	Unique_Summary	Num_Unique
-GSE18864	brca_genotype	BRCA1 germline mutation, Unknown, WT	3
-GSE18864	er_status	neg, pos	2
-GSE18864	grade	I, II, III	3
-GSE18864	her2_status	neg, pos, unk	3
-GSE18864	p53_status	MSM, n/d, NSM, unknown, WT	5
-GSE18864	Platform_ID	GPL570	1
-GSE18864	pr_status	neg, pos	2
-GSE18864	title	Patient 1, Patient 10, Patient 11, Patient 12, Patient 14, Patient 15, Patient 16, Patient 17, Patient 2, Patient 21, Patient 22, Patient 23, Patient 24, Patient 25, Patient 26, Patient 27, Patient 28, Patient 29, Patient 3, Patient 4, Patient 5, Patient 6, Patient 7, Patient 8, Reference tumor 1, Reference tumor 1 replicate, Reference tumor 10, Reference tumor 11, Reference tumor 113, Reference tumor 115, Reference tumor 116, Reference tumor 116 replicate, Reference tumor 117, Reference tumor 118, Reference tumor 12, Reference tumor 12 replicate, Reference tumor 120, Reference tumor 122, Reference tumor 123, Reference tumor 124, Reference tumor 125, Reference tumor 134, Reference tumor 136, Reference tumor 140, Reference tumor 141, Reference tumor 145, Reference tumor 147, Reference tumor 17, Reference tumor 187, Reference tumor 2, Reference tumor 20, Reference tumor 21, Reference tumor 21 replicate, Reference tumor 22, Reference tumor 25, Reference tumor 25 replicate, Reference tumor 28, Reference tumor 29, Reference tumor 30, Reference tumor 35, Reference tumor 38, Reference tumor 38 replicate, Reference tumor 40, Reference tumor 43, Reference tumor 44, Reference tumor 47, Reference tumor 5, Reference tumor 54, Reference tumor 55, Reference tumor 55 replicate, Reference tumor 63, Reference tumor 63 replicate, Reference tumor 66, Reference tumor 7, Reference tumor 70, Reference tumor 71, Reference tumor 72, Reference tumor 80, Reference tumor 80 replicate, Reference tumor 85, Reference tumor 90, Reference tumor 91, Reference tumor 96, Reference tumor 98	84

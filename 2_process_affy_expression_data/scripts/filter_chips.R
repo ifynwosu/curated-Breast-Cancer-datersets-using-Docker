@@ -1,5 +1,6 @@
 
-gseID_list <- read_tsv("/Data/gseIDs.tsv", comment = "#")
+gseID_list <- read_tsv("/Data/gseIDs.tsv", comment = "#") %>%
+  filter(!(gseID == "GSE23720")) #GSE23720 requires special processing so we are excluding it.
 
 huExon <- gseID_list %>%
     filter(geneChip == "Affymetrix Human Exon 1.0 ST Array [transcript (gene) version]")

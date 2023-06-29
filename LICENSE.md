@@ -1,0 +1,6 @@
+
+#Licenses#
+
+An Annotated Compendium of 100 Breast Cancer Gene-Expression Datasets by Ifeanyichukwu Nwosu, Stephen Piccolo, Daniel Tabler, Margaret E.Van Meter is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License unless otherwise specified (https://creativecommons.org/licenses/by-sa/4.0/legalcode). You are free to share and modify the data so long as you attribute any public use of the database, or works produced from the database; keep the resulting data-sets open; and offer your shared or adapted version of the data-set under the same CC BY-SA 4.0 license.
+
+The METABRIC data are available under the ODC Open Database License (ODbL)(http://opendatacommons.org/licenses/odbl/1.0/) (summary available here: http://www.opendatacommons.org/licenses/odbl/1-0/summary/): you are free to share and modify the data so long as you attribute any public use of the database, or works produced from the database; keep the resulting data-sets open; and offer your shared or adapted version of the data-set under the same ODbL license.

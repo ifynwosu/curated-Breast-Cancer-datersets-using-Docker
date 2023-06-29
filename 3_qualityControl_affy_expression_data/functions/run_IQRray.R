@@ -47,11 +47,11 @@ run_IQRray_multiple_chips <- function(gseID, geo_accession) {
   celFiles <- list.files(tmp_dir, pattern = "*.CEL", full.names = T, ignore.case = T) %>%
     as_tibble()
 
-  celFiles_num <- celFiles %>%
+  celFiles_new <- celFiles %>%
     mutate(gse_ID = as.numeric(str_extract(value, "\\d+")),
            geo_number = as.numeric(str_extract(value, "\\d+(?=\\.[A-Za-z])")))
 
-  celFilePaths <- inner_join(geo_accession, celFiles_num) %>%
+  celFilePaths <- inner_join(geo_accession, celFiles_new) %>%
     dplyr::select(value) %>%
     pull()
 

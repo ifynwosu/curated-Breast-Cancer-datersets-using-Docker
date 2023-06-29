@@ -7,7 +7,7 @@ merged_doppel <- read_tsv(file_paths) %>%
   dplyr::select(sample1, sample2, expr.similarity) %>%
   separate(sample1, c("gseID_1", "Sample_ID_1"), sep = ":") %>%
   separate(sample2, c("gseID_2", "Sample_ID_2"), sep = ":") %>%
-  dplyr::filter(expr.similarity > 0.99) %>%
+  mutate(likely_duplicate = ifelse(expr.similarity > 0.99, "Yes", "No")) %>%
   distinct()
   
 write_tsv(merged_doppel, "/Data/merged_doppelgang_results.tsv.gz")

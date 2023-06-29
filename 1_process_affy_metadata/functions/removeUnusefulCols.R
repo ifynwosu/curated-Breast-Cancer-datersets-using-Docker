@@ -3,11 +3,11 @@ removeUnusefulCols <- function(metadata) {
 
   #these columns are unuseful
   metadata <- metadata %>%
-    dplyr::select(-(starts_with(c("contact", "relation", "supplementary_file"))))
+    dplyr::select(-(starts_with(c("contact", "relation", "supplementary_file", "data_processing", "extract_protocol"))))
 
   #other unuseful columns
   #they are common to multiple data sets
-  remove_cols <- c("biomaterial_provider_ch1", "channel_count", "data_processing", "data_row_count", "extract_protocol_ch1", "filename",
+  remove_cols <- c("biomaterial_provider_ch1", "channel_count", "data_row_count", "filename",
   "growth_protocol_ch1", "hyb_protocol", "id_ch1",  "label_ch1", "label_protocol_ch1", "last_update_date", "molecule_ch1", "organism_ch1",
   "processor_id", "samplename_ch1", "sample_name_ch1", "scan_protocol", "source_name_ch1", "status", "submission_date", "taxid_ch1",
   "treatment_protocol_ch1", "type")
@@ -27,8 +27,13 @@ removeUnusefulCols <- function(metadata) {
       next
     }
 
-    #The data set GSE45255 has information in this column which is useful, so we are keeping it
+    # The data set GSE45255 has information in this column which is useful, so we are keeping it
     if (str_detect(columnName, "characteristics_ch1_9") & ("GSE45255" %in% metadata$Dataset_ID)) {
+      next
+    }
+    
+    # This column has some inconsistencies which make it difficult for GEOquery to parse the file properly, thus it is done manually
+    if (str_detect(columnName, "characteristics_ch1_4") & ("GSE22093" %in% metadata$Dataset_ID)) {
       next
     }
 

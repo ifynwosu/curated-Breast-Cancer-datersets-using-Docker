@@ -1,7 +1,0 @@
-Dataset_ID	Variable	Unique_Summary	Num_Unique
-GSE48390	er	negative, positive	2
-GSE48390	event	disease-free, recurrence, metastasis,  or disease-specific mortality	2
-GSE48390	her2	normal, over-expression	2
-GSE48390	hu306_classification	Basal-like subtype, HER2-enriched, Luminal A, Luminal B, Normal breast-like, Uncla	6
-GSE48390	Platform_ID	GPL570	1
-GSE48390	status	alive, death	2

@@ -19,7 +19,7 @@ U133_A <- read_tsv(paste0(IQRray_result, "/U133_A.tsv")) %>%
   mutate(Platform = "U133A") %>%
   mutate(Passing = value > 53812.1375)
 
-U133_A_extra <- read_tsv(paste0(IQRray_result, "/U133_A_extra.tsv")) %>%
+U133_A_multiple_chip <- read_tsv(paste0(IQRray_result, "/U133_A_multiple_chip.tsv")) %>%
   mutate(Platform = "U133A") %>%
   mutate(Passing = value > 53812.1375)
 
@@ -35,7 +35,7 @@ U133_plus_2 <- read_tsv(paste0(IQRray_result, "/U133_plus_2.tsv")) %>%
   mutate(Platform = "U133Plus2") %>%
   mutate(Passing = value > 136266.0795)
 
-U133_plus_2_extra <- read_tsv(paste0(IQRray_result, "/U133_Plus2_extra.tsv")) %>%
+U133_plus_2_multiple_chip <- read_tsv(paste0(IQRray_result, "/U133_Plus2_multiple_chip.tsv")) %>%
   mutate(Platform = "U133Plus2") %>%
   mutate(Passing = value > 136266.0795)
 
@@ -43,7 +43,7 @@ E_TABM_158 <- read_tsv(paste0(IQRray_result, "/E_TABM_158.tsv")) %>%
   mutate(Platform = "U133A") %>%
   mutate(Passing = value > 53812.1375)
 
-big_list <- do.call("rbind", list(huExon, huGene, U95_2, U133_A_Early_Access, U133_A, U133_A_extra, U133_A2, U133_B, U133_plus_2, U133_plus_2_extra, E_TABM_158))
+big_list <- do.call("rbind", list(huExon, huGene, U95_2, U133_A_Early_Access, U133_A, U133_A_multiple_chip, U133_A2, U133_B, U133_plus_2, U133_plus_2_multiple_chip, E_TABM_158))
 
 goodQuality <- big_list[which(big_list$Passing == "TRUE"), ]
 goodQuality$gsmID = gsub("gsm", "GSM", goodQuality$gsmID)
@@ -62,7 +62,7 @@ goodQual <- function(expr_file) {
 }
 
 special_cases <- c("GSE62944_Tumor.tsv", "GSE62944_Normal.tsv", "GSE81538.tsv", "GSE96058_HiSeq.tsv",
-"GSE96058_NextSeq.tsv", "ICGC_FR.tsv", "ICGC_KR.tsv", "METABRIC.tsv")
+"GSE96058_NextSeq.tsv", "ICGC_KR.tsv", "METABRIC.tsv")
 
 for (file in list.files(clean_colnames_expr_data, full.names = T)) {
 

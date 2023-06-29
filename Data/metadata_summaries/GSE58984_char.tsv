@@ -1,7 +1,0 @@
-Dataset_ID	Variable	Unique_Summary	Num_Unique
-GSE58984	Platform_ID	GPL570	1
-GSE58984	tissue	HER2 breast cancer tumor	1
-GSE58984	treatment	trastuzumab	1
-GSE58984	distant_metastasis	0, 1	2
-GSE58984	er_status	0, 1	2
-GSE58984	pgr_status	0, 1	2

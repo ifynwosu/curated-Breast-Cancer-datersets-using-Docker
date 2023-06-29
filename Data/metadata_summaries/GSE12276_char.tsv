@@ -1,4 +1,0 @@
-Dataset_ID	Variable	Unique_Summary	Num_Unique
-GSE12276	Platform_ID	GPL570	1
-GSE12276	site_of_relapse	local, NA	2
-GSE12276	site_of_relapse_brain_or_other	brain, brain+other, local, other, NA	5

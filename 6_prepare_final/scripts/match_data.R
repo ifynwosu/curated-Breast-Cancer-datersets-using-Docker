@@ -8,7 +8,7 @@ file_paths_expr <- list.files(expr_dir, full.names = T)
 TCGA <- c("GSE62944_Tumor.tsv", "GSE62944_Normal.tsv")
 
 special_cases <- c("GSE81538.tsv", "GSE96058_HiSeq.tsv",
-"GSE96058_NextSeq.tsv", "ICGC_FR.tsv", "ICGC_KR.tsv", "METABRIC.tsv")
+"GSE96058_NextSeq.tsv", "ICGC_KR.tsv", "METABRIC.tsv")
 
 
 for (i in 1:length(file_paths_meta)) {

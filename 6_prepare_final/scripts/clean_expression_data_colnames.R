@@ -3,7 +3,7 @@
 file_paths <- list.files(normalized_data, full.names = T)
 
 special_cases <- c("GSE62944_Tumor", "GSE62944_Normal", "GSE81538", "GSE96058_HiSeq",
-                   "GSE96058_NextSeq", "ICGC_FR", "ICGC_KR", "METABRIC")
+                   "GSE96058_NextSeq", "ICGC_KR", "METABRIC")
 
 
 # remove extra characters in column names
