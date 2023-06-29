@@ -1,3 +1,16 @@
 # Ignore everything in this directory 
 Data/
 
+# Files to not ignore
+!Data/gseIDs.tsv
+!Data/doppelgang_results
+!Data/IQRray_results
+!Data/merged_metadata_summary.tsv
+
+#git add
+#git add file/folder
+#git commit -m "message"
+#git push origin master
+
+#git reset --soft HEAD~1 (removes last local commit)
+
