@@ -1,4 +1,4 @@
-#This script parses, gene expression metadata
+#This script parses gene expression metadata
 
 gseIDs <- read_tsv("/Data/gseIDs.tsv", comment = "#")
 
@@ -27,7 +27,7 @@ for (gseID in gseID_list) {
       print(paste0(gseID, " has already been processed!"))
   } else {
       # write un-curated metadata to file
-      df <- getFromGEO(gseID)
+      df <- getFromGEO(gseID)      
       write_tsv(df, file.path(raw_metadata_dir, paste0(gseID, ".tsv")))
 
       #some housekeeping and cleaning up column and column names

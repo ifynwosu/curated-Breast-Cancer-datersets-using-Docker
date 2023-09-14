@@ -1,3 +1,4 @@
+# filter based on gene chip
 
 gseID_list <- read_tsv("/Data/gseIDs.tsv", comment = "#") %>%
   filter(!(gseID == "GSE23720")) #GSE23720 requires special processing so we are excluding it.

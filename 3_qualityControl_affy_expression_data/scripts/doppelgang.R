@@ -1,5 +1,5 @@
 
-#identify directory where input variable (normalized data) is stored
+# identify directory where input variable (normalized data) is stored
 datadir <- "/Data/expression_data"
 
 # turn each dataset into an Expressionset
@@ -13,7 +13,7 @@ makeExprs <- function(file_path) {
   data_expr <- ExpressionSet(assayData = data_matrix)
 }
 
-#run dopplegangR using pairwise comparisons of datasets
+# run dopplegangR using pairwise comparisons of datasets
 file_paths <- list.files(datadir, full.names = T)
 for (i in 1:(length(file_paths) - 1)) {
   file_path1 <- file_paths[i]

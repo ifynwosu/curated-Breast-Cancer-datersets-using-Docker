@@ -1,4 +1,4 @@
-FROM bioconductor/bioconductor_docker:RELEASE_3_15
+FROM bioconductor/bioconductor_docker:RELEASE_3_17
 
 #install required packages
 RUN R -e 'BiocManager::install(c("tidyverse", "doppelgangR", "affy", "AnnotationDbi", "Biobase", "oligo", "GEOquery", "ggplot2"), force = TRUE)'

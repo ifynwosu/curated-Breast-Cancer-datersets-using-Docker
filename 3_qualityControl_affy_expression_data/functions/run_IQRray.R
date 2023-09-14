@@ -1,5 +1,7 @@
 
-#function to run the IQRray function across multiple datasets
+# function to run the IQRray function across multiple datasets
+
+# IQray on single chips
 run_IQRray <- function(gseID) {
 
   # Define the file path to a temp directory for saving RAW data
@@ -32,6 +34,7 @@ run_IQRray <- function(gseID) {
   return(IQR_score)
 }
 
+# IQray on multiple chips
 run_IQRray_multiple_chips <- function(gseID, geo_accession) {
 
   # Define the file path to a temp directory for saving RAW data
@@ -57,7 +60,7 @@ run_IQRray_multiple_chips <- function(gseID, geo_accession) {
 
   my_data <- ReadAffy(filenames = celFilePaths)
   IQR_score <- IQRray_affy(my_data) %>%
-  as_tibble(rownames = "celfileID")
+    as_tibble(rownames = "celfileID")
 
   IQR_score <- mutate(IQR_score, gsmID = str_extract(IQR_score$celfileID, "[A-Za-z]+\\d+")) %>%
     relocate(gsmID)

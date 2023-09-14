@@ -87,7 +87,7 @@ if (gseID == "GSE7378") {
 
 if (gseID == "GSE7390") {
   metadata <- metadata %>%
-    dplyr::select(-c("title", "description", "filename", "veridex_risk"))
+    dplyr::select(-c("title", "description", "filename", "veridex_risk", "risknpi", "risksg"))
 }
 
 if (gseID == "GSE7904") {
@@ -410,7 +410,7 @@ if (gseID == "GSE48390") {
 
 if (gseID == "GSE50948") {
   metadata <- metadata %>%
-    dplyr::select(-c("title", "patid"))
+    dplyr::select(-c("title", "patid", "bgus_ct"))
 }
 
 if (gseID == "GSE57968") {

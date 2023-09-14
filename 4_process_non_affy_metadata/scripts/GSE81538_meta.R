@@ -8,14 +8,14 @@ metadata <- pData(df)
 # write un-curated metadata to file
 write_tsv(metadata, file.path(raw_metadata_dir, "GSE81538.tsv"))
 
-metadata <- metadata %>%
-  clean_names() %>%
-  removeCols() %>%
-  dplyr::select(-c("title", "description", "tissue_ch1")) %>%
-  rename_with(~str_replace_all(., "_ch1", "")) %>%
-  dplyr::rename(Sample_ID = geo_accession) %>%
-  mutate(Dataset_ID = "GSE81538", .before = Sample_ID) %>%
-  mutate(Platform_ID = platform_id, .after = Sample_ID) %>%
+metadata <- metadata |>
+  clean_names() |>
+  removeCols() |>
+  dplyr::select(-c("title", "description", "tissue_ch1")) |>
+  rename_with(~str_replace_all(., "_ch1", "")) |>
+  dplyr::rename(Sample_ID = geo_accession) |>
+  mutate(Dataset_ID = "GSE81538", .before = Sample_ID) |>
+  mutate(Platform_ID = platform_id, .after = Sample_ID) |>
   dplyr::select(-platform_id)
 
 #summarise metadata variables

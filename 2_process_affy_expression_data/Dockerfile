@@ -1,4 +1,4 @@
-FROM bioconductor/bioconductor_docker:RELEASE_3_15
+FROM bioconductor/bioconductor_docker:RELEASE_3_17
 
 #install required packages
 RUN R -e 'BiocManager::install(c("GEOquery", "SCAN.UPC", "tidyverse", "janitor", "stringi", "biomaRt", "rlist", "doParallel", "doppelgangR", "tools"), force = TRUE)'

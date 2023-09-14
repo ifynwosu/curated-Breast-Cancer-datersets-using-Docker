@@ -1,2 +1,2 @@
 sample1	sample2	expr.similarity	expr.doppel	pheno.similarity	pheno.doppel	smokinggun.similarity	smokinggun.doppel
-GSE11001:GSM278158	GSE46184:GSM1125815	0.9320817990893066	TRUE	NA	FALSE	NA	FALSE
+GSE11001:GSM278158	GSE46184:GSM1125815	0.932081799089473	TRUE	NA	FALSE	NA	FALSE

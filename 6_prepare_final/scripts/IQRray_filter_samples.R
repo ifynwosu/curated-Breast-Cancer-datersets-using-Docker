@@ -19,21 +19,21 @@ U133_A <- read_tsv(paste0(IQRray_result, "/U133_A.tsv")) %>%
   mutate(Platform = "U133A") %>%
   mutate(Passing = value > 53812.1375)
 
-U133_A_multiple_chip <- read_tsv(paste0(IQRray_result, "/U133_A_multiple_chip.tsv")) %>%
-  mutate(Platform = "U133A") %>%
-  mutate(Passing = value > 53812.1375)
-
 U133_A2 <- read_tsv(paste0(IQRray_result, "/U133_A2.tsv")) %>%
   mutate(Platform = "U133A2") %>%
   mutate(Passing = value > 66795.84023)
 
-U133_B <- read_tsv(paste0(IQRray_result, "/U133_B.tsv")) %>%
-  mutate(Platform = "U133B") %>%
-  mutate(Passing = value > 50700.16364)
-
 U133_plus_2 <- read_tsv(paste0(IQRray_result, "/U133_plus_2.tsv")) %>%
   mutate(Platform = "U133Plus2") %>%
   mutate(Passing = value > 136266.0795)
+
+U133_A_multiple_chip <- read_tsv(paste0(IQRray_result, "/U133_A_multiple_chip.tsv")) %>%
+  mutate(Platform = "U133A") %>%
+  mutate(Passing = value > 53812.1375)
+
+U133_B <- read_tsv(paste0(IQRray_result, "/U133_B.tsv")) %>%
+  mutate(Platform = "U133B") %>%
+  mutate(Passing = value > 50700.16364)
 
 U133_plus_2_multiple_chip <- read_tsv(paste0(IQRray_result, "/U133_Plus2_multiple_chip.tsv")) %>%
   mutate(Platform = "U133Plus2") %>%
@@ -43,7 +43,7 @@ E_TABM_158 <- read_tsv(paste0(IQRray_result, "/E_TABM_158.tsv")) %>%
   mutate(Platform = "U133A") %>%
   mutate(Passing = value > 53812.1375)
 
-big_list <- do.call("rbind", list(huExon, huGene, U95_2, U133_A_Early_Access, U133_A, U133_A_multiple_chip, U133_A2, U133_B, U133_plus_2, U133_plus_2_multiple_chip, E_TABM_158))
+big_list <- do.call("rbind", list(huExon, huGene, U95_2, U133_A_Early_Access, U133_A, U133_A2, U133_plus_2, U133_A_multiple_chip, U133_B, U133_plus_2_multiple_chip, E_TABM_158))
 
 goodQuality <- big_list[which(big_list$Passing == "TRUE"), ]
 goodQuality$gsmID = gsub("gsm", "GSM", goodQuality$gsmID)

@@ -1,10 +1,14 @@
 library(biomaRt)
 library(tidyverse)
 library(tools)
+library(splitstackshape)
 
 # set biomart cache location. Without this, code fails becase of docker permissions issues.
 Sys.setenv(BIOMART_CACHE = "/Data/cache")
 
+Sys.setenv("VROOM_CONNECTION_SIZE" = 131072 * 10000)
+
+#set relevant directories
 normalized_data <- "/Data/expression_data"
 
 IQRray_result <- "/Data/IQRray_results"
@@ -40,8 +44,8 @@ source("scripts/match_data.R")
 source("scripts/add_gene_symbol.R")
 source("scripts/merge_metadata_summaries.R")
 
-unlink(clean_colnames_expr_data, recursive = TRUE, force = TRUE)
-unlink(IQRray_filtered, recursive = TRUE, force = TRUE)
-unlink(meta_expr_matched_data, recursive = TRUE, force = TRUE)
-unlink(meta_dir, recursive = TRUE, force = TRUE)
-unlink("/Data/cache", recursive = TRUE, force = TRUE) 
+# unlink(clean_colnames_expr_data, recursive = TRUE, force = TRUE)
+# unlink(IQRray_filtered, recursive = TRUE, force = TRUE)
+# unlink(meta_expr_matched_data, recursive = TRUE, force = TRUE)
+# unlink(meta_dir, recursive = TRUE, force = TRUE)
+# unlink("/Data/cache", recursive = TRUE, force = TRUE) 

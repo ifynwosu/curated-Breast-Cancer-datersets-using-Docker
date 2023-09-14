@@ -17,7 +17,7 @@ my_data <- ReadAffy(filenames = celFilePaths)
 IQR_score <- IQRray_affy(my_data) %>%
   as_tibble(rownames = "celfileID")
 
-#code below matches sample names from metadata file to IQR_score
+# code below matches sample names from metadata file to IQR_score
 # download metadata file
 download.file("https://www.ebi.ac.uk/arrayexpress/files/E-TABM-158/E-TABM-158.sdrf.txt",
               destfile = paste0(base_dir, "ETABM_158_meta.txt"))

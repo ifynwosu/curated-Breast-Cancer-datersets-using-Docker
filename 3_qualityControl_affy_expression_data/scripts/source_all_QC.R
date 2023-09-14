@@ -31,7 +31,7 @@ if (!dir.exists(IQRray_file_path)) {
   dir.create(IQRray_file_path)
 }
 
-#source required functions
+# source required functions
 source("functions/compute_IQRray.R")
 source("functions/run_IQRray.R")
 source("functions/bind_IQR_file.R")
@@ -39,13 +39,14 @@ source("functions/bind_IQR_file.R")
 #source script that seperates datasets by array type
 source("scripts/filter_chips.R")
 
+# various QC scripts
 source("scripts/doppelgang.R")
 source("scripts/merge_doppel_results.R")
 source("scripts/IQRray_E_TABM_158.R")
 source("scripts/IQRray_single_chips.R")
 source("scripts/IQRray_multiple_chips.R")
 
-#delete temporary download directory
+# delete temporary download directory
 unlink("GSE1456", recursive = TRUE, force = TRUE)
 unlink("GSE3494", recursive = TRUE, force = TRUE)
 unlink("GSE4922", recursive = TRUE, force = TRUE)

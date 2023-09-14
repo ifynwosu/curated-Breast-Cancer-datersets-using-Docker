@@ -39,7 +39,7 @@ entrez_geneSymbol <- function(expr_file) {
     distinct(ensembl_gene_id, .keep_all = TRUE)
 
   big_df <- left_join(new_df, filtered_gene_list, by = "entrezgene_id") %>%
-    dplyr::select(Dataset, entrezgene_id, ensembl_gene_id, chromosome_name, hgnc_symbol, gene_biotype, everything()) %>%
+    dplyr::select(Dataset, entrezgene_id, hgnc_symbol, ensembl_gene_id, chromosome_name, gene_biotype, everything()) %>%
     rename_df() %>%
     mutate(across(where(is.character), ~na_if(., ""))) %>%
     na.omit()
@@ -65,7 +65,7 @@ HGNC_geneSymbol <- function(expr_file) {
   
   # merge files
   big_df <- left_join(expr_data, filtered_gene_list, by = "hgnc_symbol") %>%
-    dplyr::select(Dataset, entrezgene_id, ensembl_gene_id, chromosome_name, hgnc_symbol, gene_biotype, everything()) %>%
+    dplyr::select(Dataset, entrezgene_id, hgnc_symbol, ensembl_gene_id, chromosome_name, gene_biotype, everything()) %>%
     rename_df() %>%
     mutate(across(where(is.character), ~na_if(., ""))) %>%
     na.omit()
