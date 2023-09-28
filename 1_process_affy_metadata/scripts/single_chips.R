@@ -1,4 +1,4 @@
-#This script parses gene expression metadata
+# This script parses gene expression metadata
 
 gseIDs <- read_tsv("/Data/gseIDs.tsv", comment = "#")
 
@@ -10,7 +10,7 @@ keep_varible <- c("Affymetrix Human Exon 1.0 ST Array [transcript (gene) version
 
 gseID_list <- NULL
 
-#create a new list with gseID's we want to keep
+# create a new list with gseID's we want to keep
 for (i in seq_along(gseIDs$geneChip)) {
   keep_sample <- gseIDs$geneChip[i]
   if (keep_sample %in% keep_varible) {
@@ -30,7 +30,7 @@ for (gseID in gseID_list) {
       df <- getFromGEO(gseID)      
       write_tsv(df, file.path(raw_metadata_dir, paste0(gseID, ".tsv")))
 
-      #some housekeeping and cleaning up column and column names
+      # some housekeeping and cleaning up column and column names
       metadata <- df %>%
         removeUnusefulCols() %>%
         rename_with(~str_replace_all(., "_ch1", "")) %>%
@@ -42,7 +42,7 @@ for (gseID in gseID_list) {
       # summarise variables
       varSummary <- summariseVariables(metadata)
 
-      #write cleaned up data to files
+      # write cleaned up data to files
       writeOutput(gseID)
   }
 }

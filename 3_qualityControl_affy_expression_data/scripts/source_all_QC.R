@@ -36,7 +36,7 @@ source("functions/compute_IQRray.R")
 source("functions/run_IQRray.R")
 source("functions/bind_IQR_file.R")
 
-#source script that seperates datasets by array type
+# source script that seperates datasets by array type
 source("scripts/filter_chips.R")
 
 # various QC scripts

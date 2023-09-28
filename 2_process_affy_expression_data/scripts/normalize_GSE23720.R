@@ -43,8 +43,8 @@ GSE23720_celfile <- pData(GSE23720[[1]]) %>%
   mutate(geo_accession = str_c("/tmp/GSE23720/", geo_accession, ".CEL.gz")) %>%
   pull(2)
 
-#format to run function
-#SCAN_normalise <- function(gseID, annotation_package, probe_summary, celFilePaths)
+# format to run function
+# SCAN_normalise <- function(gseID, annotation_package, probe_summary, celFilePaths)
 
 SCAN_normalise("GSE23720", "pd.hg.u133.plus.2", "hgu133plus2hsentrezgprobe", GSE23720_celfile)
 

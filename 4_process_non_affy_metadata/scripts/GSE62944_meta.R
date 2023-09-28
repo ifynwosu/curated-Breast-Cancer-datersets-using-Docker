@@ -27,7 +27,7 @@ Transposed_df <- as_tibble(t(Clinical_Variables), stringsAsFactors = F)
 Transposed_df[1, 1] <- "Sample_ID"
 Transposed_df <- row_to_names(Transposed_df, 1, remove_row = TRUE, remove_rows_above = TRUE)
 
-#merge tumor and normal data frames by Sampleid
+# merge tumor and normal data frames by Sampleid
 Merged_tumor_df <- Transposed_df %>%
   inner_join(CancerType, by = "Sample_ID") %>%
   dplyr::select(-cancer_type)
@@ -49,7 +49,7 @@ Transposed_df <- Transposed_df %>%
   remove_constant()
 
 
-#calculate percentage of columns with missing data for easy visualisation
+# calculate percentage of columns with missing data for easy visualisation
 # NA_values <- as_tibble(colMeans(is.na(Merged_tumor_df)), rownames = "variable") %>%
 #   pivot_wider(names_from = variable, values_from = value)
 # new_df <- rbind(NA_values, Merged_tumor_df)

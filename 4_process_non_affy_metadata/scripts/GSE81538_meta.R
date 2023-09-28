@@ -18,7 +18,7 @@ metadata <- metadata |>
   mutate(Platform_ID = platform_id, .after = Sample_ID) |>
   dplyr::select(-platform_id)
 
-#summarise metadata variables
+# summarise metadata variables
 varSummary <- summariseVariables(metadata)
 
 if (nrow(varSummary$numSummary) >= 1) {

@@ -76,7 +76,7 @@ for (gseID in dual_chips) {
     varSummary_A <- summariseVariables(metadata_A)
     varSummary_B <- summariseVariables(metadata_B)
 
-    #write cleaned up data to files
+    # write cleaned up data to files
     if ((ncol(metadata_A) > 2)) {
       write_tsv(metadata_A, file.path(metadata_dir, paste0(gseID, "_U133A.tsv")))
       write_tsv(metadata_B, file.path(metadata_dir, paste0(gseID, "_U133B.tsv")))
@@ -133,7 +133,7 @@ clean_metadata <- function(chip) {
   return(metadata)
 }
 
-metadata_A <- clean_metadata(df_U133A) %>%      #The following variables are present in A but not B & C (distant_rfs, ggi, time_rfs)
+metadata_A <- clean_metadata(df_U133A) %>%      # The following variables are present in A but not B & C (distant_rfs, ggi, time_rfs)
   dplyr::select(-starts_with(c("characteristics_", "ggi")))
 metadata_B <- clean_metadata(df_U133B)
 metadata_C <- clean_metadata(df_U133Plus2)

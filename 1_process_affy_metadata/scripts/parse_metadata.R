@@ -1,8 +1,8 @@
-#An update to readr caused GEOquery to fail.
-#This temporary workaround fixed it so leaving it here incase it breaks again in the future
+# An update to readr caused GEOquery to fail.
+# This temporary workaround fixed it so leaving it here incase it breaks again in the future
 
-#Sys.setenv("VROOM_CONNECTION_SIZE" = 131072 * 1000)
-#readr::local_edition(1)
+# Sys.setenv("VROOM_CONNECTION_SIZE" = 131072 * 1000)
+# readr::local_edition(1)
 
 library(GEOquery)
 library(tidyverse)
@@ -34,13 +34,13 @@ if (!dir.exists(metadata_summaries)) {
   dir.create(metadata_summaries, recursive = TRUE)
 }
 
-#getting required functions
+# getting required functions
 source("functions/getFromGEO.R")
 source("functions/removeUnusefulCols.R")
 source("functions/summariseVariables.R")
 source("functions/writeOutput.R")
 
-#parse Files
+# parse Files
 source("scripts/E_TABM_158_meta.R")
 source("scripts/single_chips.R")
 source("scripts/multiple_chips.R")

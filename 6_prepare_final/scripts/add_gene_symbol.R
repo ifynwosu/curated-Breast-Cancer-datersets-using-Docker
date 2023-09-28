@@ -26,7 +26,7 @@ entrez_geneSymbol <- function(expr_file) {
             rename(entrezgene_id = Gene)
   entrez_ID <- (new_df$entrezgene_id)
 
-  #match gene ids to ensemble database
+  # match gene ids to ensemble database
   gene_list <- getBM(attributes = c("entrezgene_id", "ensembl_gene_id", "chromosome_name", "hgnc_symbol", "gene_biotype"),
                      filters = "entrezgene_id",
                      values = entrez_ID,
@@ -52,7 +52,7 @@ HGNC_geneSymbol <- function(expr_file) {
     rename(hgnc_symbol = HGNC)    
   HGNC_ID <- (expr_data$hgnc_symbol)
 
-  #match gene ids to ensemble database
+  # match gene ids to ensemble database
   gene_list <- getBM(attributes = c("entrezgene_id", "ensembl_gene_id", "chromosome_name", "hgnc_symbol", "gene_biotype"),
                      filters = "hgnc_symbol",
                      values = HGNC_ID,

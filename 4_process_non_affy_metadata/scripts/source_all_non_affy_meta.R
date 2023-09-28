@@ -27,5 +27,5 @@ source("scripts/GSE62944_meta.R")
 source("scripts/ICGC_South_Korea_meta.R")
 source("scripts/Metabric_meta.R")
 
-#delete temporary download directory
+# delete temporary download directory
 unlink(tmp_dir, recursive = TRUE, force = TRUE)

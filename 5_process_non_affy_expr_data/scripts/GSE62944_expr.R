@@ -1,14 +1,14 @@
 
-#fetch RAW file from GEO and store in dataDir
+# fetch RAW file from GEO and store in dataDir
 GSE <- getGEOSuppFiles(GEO = "GSE62944", makeDirectory = F, baseDir = tmp_dir, filter_regex = "GSE62944_RAW.tar")
 
-# #unzip the tar file for access to internal files
+# unzip the tar file for access to internal files
 storage_dir <- rownames(GSE)
 untar(storage_dir[1], exdir = tmp_dir)
 
 GSE62944_tumor_df <- read_tsv(paste0(tmp_dir, "GSM1536837_06_01_15_TCGA_24.tumor_Rsubread_TPM.txt.gz"), col_names = F)
 
-#Process tumor gene expression data
+# Process tumor gene expression data
 cancerTypeSamples <- getGEOSuppFiles("GSE62944", makeDirectory = F, baseDir = tmp_dir, filter_regex = "GSE62944_06_01_15_TCGA_24_CancerType_Samples.txt.gz")
 CancerType <- rownames(cancerTypeSamples) %>%
   read_tsv(col_names = F)
@@ -16,7 +16,7 @@ colnames(CancerType) <- c("Sample_ID", "cancer_type")
 CancerType <- CancerType %>%
   dplyr::filter(cancer_type == "BRCA")
 
-#rearrange tumor dataframe
+# rearrange tumor dataframe
 Transposed_tumor_expr <- as.data.frame(t(GSE62944_tumor_df), stringsAsFactors = F)
 Transposed_tumor_expr[1, 1] <- "Sample_ID"
 Transposed_tumor_expr <- row_to_names(Transposed_tumor_expr, 1, remove_row = TRUE, remove_rows_above = TRUE)
@@ -49,7 +49,7 @@ normalType <- normalType %>%
 
 GSE62944_normal_df <- read_tsv(paste0(tmp_dir, "GSM1697009_06_01_15_TCGA_24.normal_Rsubread_TPM.txt.gz"), col_names = F)
 
-#rearrange normal dataframe
+# rearrange normal dataframe
 Transposed_normal <- as.data.frame(t(GSE62944_normal_df), stringsAsFactors = F)
 Transposed_normal[1, 1] <- "Sample_ID"
 Transposed_normal <- row_to_names(Transposed_normal, 1, remove_row = TRUE, remove_rows_above = TRUE)
@@ -71,7 +71,6 @@ mapping_tbl <- tibble(Expr_ID = names(GSE62944_normal_data)[2:ncol(GSE62944_norm
   filter(Sample_ID %in% normal_metadata$bcr_patient_barcode)
 
 clean_normal_data <- dplyr::select(GSE62944_normal_data, HGNC_Symbol, all_of(mapping_tbl$Expr_ID))
-
 
 print("Writing GSE62944 to file!")
 write_tsv(clean_tumor_data, paste0(data_dir, "GSE62944_Tumor.tsv.gz"))

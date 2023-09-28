@@ -45,7 +45,7 @@ ETABM_expr <- all_normalized %>%
 expr_col <- colnames(ETABM_expr) %>% as_tibble()
 names(expr_col) <- "Array Data File"
 
-#read the sample and data relationship file into a table
+# read the sample and data relationship file into a table
 ETABM_meta <- read_tsv(paste0(tmp_dir, "ETABM_158_meta.txt"))
 meta_col <- ETABM_meta %>%
   dplyr::select(c("Array Data File", "Source Name"))

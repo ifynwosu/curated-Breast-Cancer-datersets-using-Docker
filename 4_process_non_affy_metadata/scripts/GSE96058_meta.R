@@ -9,7 +9,7 @@ metadata_1 <- pData(df_1)
 # write un-curated metadata to file
 write_tsv(metadata_1, file.path(raw_metadata_dir, "GSE96058_HiSeq.tsv"))
 
-#pull phenotype data from GEO data frame
+# pull phenotype data from GEO data frame
 metadata_1 <- metadata_1 %>%
   clean_names() %>%
   removeCols() %>%
@@ -27,7 +27,7 @@ cols_to_change <- c("er_status", "pgr_status", "her2_status", "ki67_status")
 #   mutate_at(all_of(cols_to_change), ~ str_replace(., "0", "negative")) %>%
 #   mutate_at(all_of(cols_to_change), ~ str_replace(., "1", "positive"))
 
-#summarise metadata variables
+# summarise metadata variables
 varSummary <- summariseVariables(metadata_1)
 
 if (nrow(varSummary$numSummary) >= 1) {
@@ -45,7 +45,7 @@ metadata_2 <- pData(df_2)
 # write un-curated metadata to file
 write_tsv(metadata_2, file.path(raw_metadata_dir, "GSE96058_NextSeq.tsv"))
 
-#pull phenotype data from GEO data frame
+# pull phenotype data from GEO data frame
 metadata_2 <- metadata_2 %>%
   clean_names() %>%
   removeCols() %>%
@@ -61,7 +61,7 @@ metadata_2 <- metadata_2 %>%
 #   mutate_at(all_of(cols_to_change), ~ str_replace(., "0", "negative")) %>%
 #   mutate_at(all_of(cols_to_change), ~ str_replace(., "1", "positive"))
 
-#summarise metadata variables
+# summarise metadata variables
 varSummary <- summariseVariables(metadata_2)
 
 if (nrow(varSummary$numSummary) >= 1) {

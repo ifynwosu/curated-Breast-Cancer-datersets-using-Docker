@@ -1,5 +1,5 @@
 
-#download the patient data from this URL
+# download the patient data from this URL
 download.file("https://osf.io/download/ubcej/",
               destfile = paste0(tmp_dir, "metabric_meta.txt"))
 
@@ -14,7 +14,7 @@ metabric <- read_tsv(paste0(tmp_dir, "metabric_meta.txt"), comment = "#")  %>%
   mutate(Platform_ID = "GPL6947", .after = Sample_ID) %>%
   dplyr::select(-INTCLUST)
 
-#summarise metadata variables
+# summarise metadata variables
 varSummary <- summariseVariables(metabric)
 
 if (nrow(varSummary$numSummary) >= 1) {

@@ -67,7 +67,7 @@ write_tsv(NCIT_term_values_sum_multiple, "/Data/NCIT_term_values_multiple_summar
 
 
 
-# #  The code below summerizes all of the metadata variables in one file
+# The code below summerizes all of the metadata variables in one file
 # datadir <- "/Data/analysis_ready_metadata"
 # file_paths <- list.files(datadir, full.names = T)
 # out_file_path <- "/Data/merged_metadata.tsv"

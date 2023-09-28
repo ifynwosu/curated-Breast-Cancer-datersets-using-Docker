@@ -1,4 +1,4 @@
-#clean up expression data names
+# clean up expression data names
 
 file_paths <- list.files(normalized_data, full.names = T)
 

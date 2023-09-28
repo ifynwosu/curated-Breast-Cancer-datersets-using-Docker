@@ -1,4 +1,4 @@
-## script to run IQRray for single chips
+# script to run IQRray for single chips
 
 # define the datasets with Gene ST and Exon ST arrays
 oligo_arrays <- c("GSE33692", "GSE86374", "GSE58644", "GSE118432", "GSE59772", "GSE81838")

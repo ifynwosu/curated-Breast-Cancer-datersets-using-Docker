@@ -1,7 +1,7 @@
 # This script downloads data from GEO, selects the metadata, and cleans up the medadata.
 
 getFromGEO <- function(geoID) {
-#   geoID <- "GSE22093"
+
   gseData <- getGEO(geoID)
   df <- gseData[[1]]
   

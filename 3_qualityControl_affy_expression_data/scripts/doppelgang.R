@@ -53,5 +53,5 @@ for (i in 1:(length(file_paths) - 1)) {
   }
 }
 
-#delete cache dir
+# delete cache dir
 unlink("cache", recursive = TRUE, force = TRUE)

@@ -4,7 +4,7 @@ removeCols <- function(metadata) {
   metadata <- metadata %>%
     dplyr::select(- (starts_with(c("contact", "sample name", "relation", "supplementary", "data_processing", "library", "description_"))))
 
-  #other unuseful columns
+  # other unuseful columns
   remove_cols <- c("biomaterial_provider_ch1", "channel_count", "data_processing", "data_row_count", "extract_protocol_ch1", "extract_protocol_ch1_1",
                     "growth_protocol_ch1", "hyb_protocol", "instrument_model", "instrument_model_ch1", "label_ch1", "label_protocol_ch1", "last_update_date",
                    "molecule_ch1", "organism_ch1", "processor_id", "scan_protocol", "source_name_ch1", "status",

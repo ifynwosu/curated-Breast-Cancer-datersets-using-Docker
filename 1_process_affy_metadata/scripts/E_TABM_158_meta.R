@@ -5,17 +5,17 @@ if (!dir.exists(tmp_dir)) {
   dir.create(tmp_dir)
 }
 
-#download metadata file
+# download metadata file
 download.file("https://www.ebi.ac.uk/arrayexpress/files/E-TABM-158/E-TABM-158.sdrf.txt",
               destfile = paste0(tmp_dir, "ETABM_158_meta.txt"))
 
-#read the sample and data relationship file into a table
+# read the sample and data relationship file into a table
 etabm_158 <- read_tsv(paste0(tmp_dir, "ETABM_158_meta.txt"))
 
 # write un-curated metadata to file
 write_tsv(etabm_158, file.path(raw_metadata_dir, "E_TABM_158.tsv"))
 
-#filter out unuseful columns
+# filter out unuseful columns
 SDRF <- etabm_158 %>%
   dplyr::select(c("Source Name", starts_with("Characteristics"))) %>%
   dplyr::select(-c("Characteristics [BioSourceType]", "Characteristics [DiseaseState]", "Characteristics [OrganismPart]",
@@ -45,7 +45,6 @@ unlink(tmp_dir, recursive = TRUE, force = TRUE)
 
 
 
-
 # Preliminary Code to decide which columns to keep
 
 # library(tidyverse)
@@ -69,4 +68,4 @@ unlink(tmp_dir, recursive = TRUE, force = TRUE)
 #   sort() %>%
 #   as_tibble()
 
-# test <- bind_cols(Char, Fact)
+# test_df <- bind_cols(Char, Fact)

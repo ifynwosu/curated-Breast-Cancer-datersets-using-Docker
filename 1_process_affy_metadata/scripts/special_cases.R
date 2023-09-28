@@ -312,7 +312,7 @@ if (gseID == "GSE28796") {
     dplyr::select(-starts_with(c("description", "title", "tissue")))
 }
 
-if (gseID == "GSE28821") {  #examine associated journal article. suggests TNBC
+if (gseID == "GSE28821") {  # examine associated journal article. suggests TNBC
   metadata <- metadata %>%
     dplyr::select(-("title")) %>%
     dplyr::select(-starts_with("description")) %>%
@@ -340,31 +340,31 @@ if (gseID == "GSE31519") {
     rename_with(~str_replace_all(., "_1", "")) %>%
     rename_with(~str_replace_all(., "2", ""))
 
-  #biopsy type (1: surgical, 2: core needle)
+  # biopsy type (1: surgical, 2: core needle)
   metadata <- metadata %>%
     mutate(across(biopsy_type, ~str_replace(., "surgical, 2: core needle\\)\\:", ""))) %>%
     mutate(across(biopsy_type, ~str_replace(., "1", "surgical"))) %>%
     mutate(across(biopsy_type, ~str_replace(., "2", "core needle")))
 
-  #event (1: yes, 0: no)
+  # event (1: yes, 0: no)
   metadata <- metadata %>%
     mutate(across(event, ~str_replace(., "yes, 0: no\\)\\:", ""))) %>%
     mutate(across(event, ~str_replace(., "0", "no"))) %>%
     mutate(across(event, ~str_replace(., "1", "yes")))
 
-  #grade (12: G1 or G2, 3: G3)
+  # grade (12: G1 or G2, 3: G3)
   metadata <- metadata %>%
     mutate(across(grade, ~str_replace(., "G1 or G2, 3\\: G3\\)\\:", ""))) %>%
     mutate(across(grade, ~str_replace(., "12", "G1 or G2"))) %>%
     mutate(across(grade, ~str_replace(., "3", "G3")))
 
-  #lymph node status (0: negative, 1: positive)
+  # lymph node status (0: negative, 1: positive)
   metadata <- metadata %>%
     mutate(across(lymph_node_status, ~str_replace(., "negative, 1\\: positive\\)\\: ", ""))) %>%
     mutate(across(lymph_node_status, ~str_replace(., "0", "negative"))) %>%
     mutate(across(lymph_node_status, ~str_replace(., "1", "positive")))
 
-  #tumor size (1: up to 1 cm, 2: >1cm)
+  # tumor size (1: up to 1 cm, 2: >1cm)
   metadata <- metadata %>%
     mutate(across(tumor_size, ~str_replace(., "up to 1 cm, 2\\: \\>1cm\\)\\:", ""))) %>%
     mutate(across(tumor_size, ~str_replace(., "1", "up to 1 cm"))) %>%
@@ -429,7 +429,7 @@ if (gseID == "GSE58984") {
     dplyr::select(-("description"))
 }
 
-#GSE59772 is triple negative according to GEO website
+# GSE59772 is triple negative according to GEO website
 if (gseID == "GSE59772") {
   metadata <- metadata %>%
   rename(replicate = title) %>%

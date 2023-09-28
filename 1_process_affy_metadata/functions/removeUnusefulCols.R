@@ -2,7 +2,7 @@
 
 removeUnusefulCols <- function(metadata) {
 
-  #these columns are unuseful
+  # these columns are unuseful
   metadata <- metadata |>
     dplyr::select(-(starts_with(c("contact", "relation", "supplementary_file", "data_processing", "extract_protocol"))))
 

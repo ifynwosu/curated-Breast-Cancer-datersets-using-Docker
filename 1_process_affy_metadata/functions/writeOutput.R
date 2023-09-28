@@ -1,4 +1,4 @@
-#write output to files
+# write output to files
 
 writeOutput <- function(gseID) {
 

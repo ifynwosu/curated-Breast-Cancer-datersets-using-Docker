@@ -1,5 +1,5 @@
 
-#BRCA_KR
+# BRCA_KR
 
 download.file("https://dcc.icgc.org/api/v1/download?fn=/current/Projects/BRCA-KR/donor.BRCA-KR.tsv.gz",
               destfile = paste0(tmp_dir, "donor.BRCA-KR.tsv.gz"))
@@ -25,7 +25,7 @@ combined_df <- donor_BRCA_KR %>%
   mutate(Dataset_ID = "ICGC_KR", .before = Sample_ID) %>%
   mutate(Platform_ID = "Illumina HiSeq", .after = Sample_ID)
 
-#summarise metadata variables
+# summarise metadata variables
 varSummary <- summariseVariables(combined_df)
 
 if (nrow(varSummary$numSummary) >= 1) {
@@ -48,6 +48,4 @@ combined_data <- d_BRCA_KR %>%
   dplyr::rename(Sample_ID = icgc_donor_id)
 
 write_tsv(combined_data, file.path(raw_metadata_dir, "ICGC_KR.tsv"))
-
-
 

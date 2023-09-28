@@ -10,7 +10,7 @@ GSE1456_U133B_geo_accession <- pData(GSE1456[[2]]) %>%
   mutate(geo_number = parse_number(as.character(geo_accession))) %>%
   dplyr::select(geo_accession, geo_number)
 
-# #process GSE3494
+# process GSE3494
 GSE3494 <- getGEO("GSE3494")
 GSE3494_U133A_geo_accession <- pData(GSE3494[[1]]) %>%
   mutate(geo_number = parse_number(as.character(geo_accession))) %>%
@@ -20,7 +20,7 @@ GSE3494_U133B_geo_accession <- pData(GSE3494[[2]]) %>%
   mutate(geo_number = parse_number(as.character(geo_accession))) %>%
   dplyr::select(geo_accession, geo_number)
 
-# #process GSE4922
+# process GSE4922
 GSE4922 <- getGEO("GSE4922")
 GSE4922_U133A_geo_accession <- pData(GSE4922[[1]]) %>%
   mutate(geo_number = parse_number(as.character(geo_accession))) %>%
@@ -30,7 +30,7 @@ GSE4922_U133B_geo_accession <- pData(GSE4922[[2]]) %>%
   mutate(geo_number = parse_number(as.character(geo_accession))) %>%
   dplyr::select(geo_accession, geo_number)
 
-#process GSE6532
+# process GSE6532
 GSE6532 <- getGEO("GSE6532")
 GSE6532_U133A_geo_accession <- pData(GSE6532[[2]]) %>%
   mutate(geo_number = parse_number(as.character(geo_accession))) %>%
