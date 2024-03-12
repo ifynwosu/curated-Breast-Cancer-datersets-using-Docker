@@ -1,8 +1,9 @@
 library(GEOquery)
 library(tidyverse)
 library(janitor)
+library(readxl)
 
-#this setting helps with the download for GSE62944 which is a very large file
+# this setting helps with the download for GSE62944 which is a very large file
 Sys.setenv("VROOM_CONNECTION_SIZE" = 131072 * 10000)
 
 #create download directory for temporary files
@@ -18,6 +19,8 @@ raw_metadata_dir <- "/Data/raw_metadata/"
 # Define the file path to the metadata directory for saving data
 data_dir <- "/Data/prelim_metadata/"
 
+meta_summaries_dir <- "/Data/metadata_summaries/"
+
 source("functions/summariseVariables.R")
 source("functions/removeCols.R")
 
@@ -26,6 +29,7 @@ source("scripts/GSE96058_meta.R")
 source("scripts/GSE62944_meta.R")
 source("scripts/ICGC_South_Korea_meta.R")
 source("scripts/Metabric_meta.R")
+source("scripts/SCAN_B_meta.R")
 
 # delete temporary download directory
 unlink(tmp_dir, recursive = TRUE, force = TRUE)

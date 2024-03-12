@@ -16,6 +16,7 @@ source("scripts/GSE96058_expr.R")
 source("scripts/GSE62944_expr.R")
 source("scripts/ICGC_South_Korea_expr.R")
 source("scripts/Metabric_expr.R")
+source("scripts/SCAN_B_expr.R")
 
 # delete temporary download directory
 unlink(tmp_dir, recursive = TRUE, force = TRUE)

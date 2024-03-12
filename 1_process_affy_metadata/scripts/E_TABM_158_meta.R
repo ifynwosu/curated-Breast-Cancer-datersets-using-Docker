@@ -26,7 +26,7 @@ SDRF <- etabm_158 %>%
   mutate(Dataset_ID = "E_TABM_158", .before = Sample_ID) %>%
   mutate(Platform_ID = "GPL4685", .after = Sample_ID)
 
-SDRF <- replace(SDRF, SDRF=='n/a', NA)
+SDRF <- replace(SDRF, SDRF == "n/a", NA)
 
 varSummary <- summariseVariables(SDRF)
 

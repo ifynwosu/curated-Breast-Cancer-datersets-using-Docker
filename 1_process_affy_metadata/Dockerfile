@@ -1,4 +1,4 @@
-FROM bioconductor/bioconductor_docker:RELEASE_3_17-R-4.3.0
+FROM bioconductor/bioconductor_docker:RELEASE_3_18
 
 #install required packages
 RUN R -e 'BiocManager::install(c("GEOquery", "tidyverse", "stringi", "janitor", "rlist"), force = TRUE)'

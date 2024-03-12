@@ -4,9 +4,10 @@ summariseVariables <- function(metadata) {
 
   # change variables to factors
   meta <- metadata %>%
-    mutate_all(type.convert, as.is = TRUE) %>%
+    mutate_all(type.convert, as.is = TRUE) %>%    
     mutate(Dataset_ID = factor(Dataset_ID)) %>%
-    mutate(Sample_ID = factor(Sample_ID))
+    mutate(Sample_ID = factor(Sample_ID)) |>
+    mutate(across(where(is.logical), as.character))
 
   numMatrix <-  meta %>%
     select_if(negate(is.character))

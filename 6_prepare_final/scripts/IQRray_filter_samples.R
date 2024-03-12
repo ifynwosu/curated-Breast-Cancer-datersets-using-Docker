@@ -61,8 +61,8 @@ goodQual <- function(expr_file) {
     clean_data <- dplyr::select(data, Dataset, Gene, all_of(keep_samples))
 }
 
-special_cases <- c("GSE62944_Tumor.tsv", "GSE62944_Normal.tsv", "GSE81538.tsv", "GSE96058_HiSeq.tsv",
-"GSE96058_NextSeq.tsv", "ICGC_KR.tsv", "METABRIC.tsv")
+special_cases <- c("GSE62944_Tumor.tsv", "GSE62944_Normal.tsv", "GSE81538.tsv", "GSE96058_HiSeq.tsv", "GSE96058_NextSeq.tsv", 
+                    "ICGC_KR.tsv", "METABRIC.tsv", "ABiM.100.tsv", "ABiM.405.tsv", "Normal.66.tsv", "OSLO2EMIT0.103.tsv", "SCANB.9206.tsv")
 
 for (file in list.files(clean_colnames_expr_data, full.names = T)) {
 
