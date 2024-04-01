@@ -14,7 +14,7 @@ SCAN-B_Data/*
 !Data/IQRray_results
 !Data/merged_metadata_summary.tsv
 
-#git add
+#git add .
 #git add file/folder
 #git commit -m "message"
 #git push origin main
